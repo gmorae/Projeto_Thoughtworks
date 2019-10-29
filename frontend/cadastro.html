@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro | easy talk</title>
+    <link rel="stylesheet" href="css/menuOutros.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu_mobile.css">
+    <script src="https://kit.fontawesome.com/86d4fe3a19.js"></script>
+
+</head>
+
+<body>
+    <header id="topo_web">
+        <nav class="menu flex">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo.png" alt="Logo da empresa">
+            </a>
+            <ul class="flex">
+                <li><a class="teste" href="index.html ">Home</a></li>
+                <li><a class="teste" href="galeria.html ">Galeria</a></li>
+                <li><a class="teste" href=" eventos.html ">Eventos</a></li>
+                <li><a class="teste" href="cadastro.html ">Cadastre-se</a>
+                </li>
+            </ul>
+            <ul>
+                <li class="botao "><a href="login.html ">Login</a></li>
+            </ul>
+            <div class="icon ">
+                <a href="# ">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="menu_mobile">
+        <input type="checkbox" id="check">
+        <label id="icone" for="check"><i class="fas fa-bars icon "></i></label>
+
+        <header id="topo_mobile_red">
+            <a href="index.html">
+                <img class="logo" src="imagens/logo.png" alt="Logo da empresa">
+            </a>
+        </header>
+
+        <div class="barra">
+            <nav>
+                <a href="index.html">
+                    <div class="link">Home</div>
+                </a>
+                <a href="galeria.html">
+                    <div class="link">Galeria</div>
+                </a>
+                <a href="eventos.html">
+                    <div class="link">Eventos</div>
+                </a>
+                <a href="cadastro.html">
+                    <div class="link">Cadastre-se</div>
+                </a>
+                <a href="login.html">
+                    <div class="link">Login</div>
+                </a>
+            </nav>
+        </div>
+    </div>
+    <main>
+        <section id="cadastro">
+            <div class="cadastro_quadrado_vermelho">
+                <div class="cadastro_quadrado_branco">
+                    <h1>Cadastre-se</h1>
+                    <form method="post">
+                        <div class="cadastro_center">
+                            <input class="cadastro_input" type="text" name="nome" placeholder="Nome Completo">
+                            <input class="cadastro_input" type="email" name="email" placeholder="E-mail">
+                            <input class="cadastro_input" type="password" name="senha" placeholder="Senha">
+                            <input class="cadastro_input" type="password" name="confirm_senha" placeholder="Confirmar Senha">
+                            <input class="cadastro_input" type="text" name="numero" placeholder="Celular">
+                            <button class="cadastro_redeSocial"><i class="fab fa-facebook-square"></i> | Cadastre-se com
+                                o facebook</button>
+                            <button class="cadastro_redeSocial"><i class="fab fa-google-plus-g"></i> | Cadastre-se com o
+                                Google</button>
+                            <div class="cadastro_icone_redeSocial">
+                                <i class="fab fa-facebook-square"></i>
+                                <i class="fab fa-google-plus-g"></i>
+                            </div>
+                            <button class="cadastro_button">Cadsatrar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
