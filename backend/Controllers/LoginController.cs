@@ -4,79 +4,55 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using api_tw.Models;
+using api_tw.Repositorio;
+using backend.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-namespace api_tw.Controllers 
+namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Produces("application/json")]
     public class LoginController : ControllerBase
     {
-        easyTalkContext context = new easyTalkContext();
-
-        private IConfiguration _config;
-
-        public LoginController(IConfiguration config)
-        {
-            _config = config;
-        }
-
+    
         [AllowAnonymous]
         [HttpPost]
-
-        public IActionResult Login(Usuario login)
+        public IActionResult BuscarEmailSenha(LoginViewModel login)
         {
-            IActionResult resposta = Unauthorized();
-
-            var usuario  = autenticarUsuario(login);
-
-            if(usuario != null)
+            UsuarioRepositorio repo = new UsuarioRepositorio();
+            try
             {
-                var tokenString  = gerarJsonWebToken(usuario);
-                resposta = Ok(new {token = tokenString});
+                var usuario = repo.BuscarPorEmailSenha(login.Email, login.Senha);
+                if (usuario == null)
+                {
+                    return NotFound("Usuario não encontrado!");
+                }
+
+                var claims = new[]
+                {
+                    new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuario.IdUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, usuario.IdTipoNavigation.NomeTipoUsuario)
+                };
+
+                var token = new JwtSecurityToken(
+                    issuer: "easyTalk",
+                    audience: "easyTalk",
+                    claims: claims,
+                    expires: DateTime.Now.AddMinutes(30)
+                );
+
+                return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
             }
-
-            return resposta;
-        }
-
-        private Usuario autenticarUsuario(Usuario login)
-        {
-            var usuario = context.Usuario.FirstOrDefault(user => user.Email == login.Email && user.Senha == login.Senha);
-
-            if(usuario != null)
+            catch (Exception)
             {
-                return login;
+                throw;
             }
-
-            return usuario;
         }
 
-        private string gerarJsonWebToken(Usuario infoUsuario)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            var claims = new[]
-            {
-                // new Claim(JwtRegisteredClaimNames.NameId, infoUsuario.Name),
-                new Claim(JwtRegisteredClaimNames.Email, infoUsuario.Email),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-            };
-
-            var token = new JwtSecurityToken(
-                _config["Jwt:Issuer"],
-                _config["Jwt:Issuer"],
-                claims,
-                expires: DateTime.Now.AddMinutes(128),
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
 
     }
 }
