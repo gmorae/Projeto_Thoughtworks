@@ -17,10 +17,10 @@ namespace api_tw.Repositorio
             {
                 var usuarioProcurado = ctx.Usuario.Include(x => x.IdTipoNavigation).FirstOrDefault(x => x.Email == email && x.Senha == senha);
 
-                if (usuarioProcurado == null)
-                {
-                    return null;
-                }
+                // if (usuarioProcurado == null)
+                // {
+                //     return null;
+                // }
                 return usuarioProcurado;
             }
         }

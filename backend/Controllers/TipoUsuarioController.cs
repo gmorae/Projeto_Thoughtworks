@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_tw.Controllers {
@@ -13,7 +14,7 @@ namespace api_tw.Controllers {
         TipoUsuarioRepositorio repositorio = new TipoUsuarioRepositorio ();
 
         [HttpGet]
-
+        [Authorize(Roles="Administrador")]
         public async Task<ActionResult<List<TipoUsuario>>> Get () {
             try {
                 return await repositorio.Get ();

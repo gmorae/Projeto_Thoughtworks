@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositorio;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_tw.Controllers
@@ -13,7 +14,7 @@ namespace api_tw.Controllers
     {
         CategoriaRepositorio repositorio = new CategoriaRepositorio();
 
-
+        [Authorize(Roles= "Administrador")]
         [HttpGet]
         public async Task<ActionResult<List<Categoria>>> Get()
         {
