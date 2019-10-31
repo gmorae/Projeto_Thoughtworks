@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
-using api_tw.Repositorio;
+using api_tw.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_tw.Controllers {
