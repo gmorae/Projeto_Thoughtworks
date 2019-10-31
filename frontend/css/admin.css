@@ -1,0 +1,183 @@
+/* Confguração padrão para todas as páginas */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red: #ff2b34;
+    --black: #222;
+    --white: #fff;
+    --texto: 'Open Sans', sans-serif;
+}
+
+a,
+p {
+    font-family: var(--texto)
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--texto);
+}
+
+body {
+    background: #eee
+}
+
+#topo_mobile_home {
+    width: 100%;
+    height: 10vh;
+    background: var(--white)
+}
+
+#check {
+    display: none;
+}
+
+#icone {
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    margin-left: 1.2em;
+    margin-top: 1.4em
+}
+
+#topo_mobile_home {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /* margin-left: 0.5em */
+}
+
+.text_menu {
+    display: flex;
+}
+
+.text_menu a {
+    padding: 0 2em;
+    text-decoration: none;
+    color: var(--red);
+    text-transform: uppercase
+}
+
+.tamanho {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.input_menu input {
+    background-color: var(--white);
+    color: var(--black);
+    padding: 10px;
+    width: 28em;
+    border: none;
+    font-size: 20px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+    border-radius: 5px;
+}
+
+.fa-bars {
+    display: block;
+    font-size: 2em;
+    color: var(--black)
+}
+
+.barra {
+    background-color: var(--red);
+    height: 90vh;
+    width: 15vw;
+    position: absolute;
+    transition: all .2s linear;
+    left: -330px;
+    /* right: -80%; */
+}
+
+.barra nav {
+    width: 100%;
+    position: absolute;
+    top: 15em;
+}
+
+.barra nav a {
+    text-decoration: none;
+}
+
+.link {
+    padding: 3.7em 0;
+    font-family: var(--texto);
+    font-size: 9pt;
+    transition: all .2s linear;
+    color: var(--white);
+    text-align: center;
+    text-decoration: none
+}
+
+#check:checked~.barra {
+    transform: translateX(300px);
+}
+
+.mt-5 {
+    margin-top: 5em
+}
+
+.card_flex {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.card {
+    background: var(--white);
+    width: 20vw;
+    height: 30vh;
+    margin: 0.5em;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+    font-family: var(--texto);
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+    width: 50%;
+    justify-content: center;
+    margin-left: 4em;
+    margin-top: 2em
+}
+
+.perfil {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 769px) {
+    .barra {
+        width: 35%
+    }
+    #icone {
+        margin-top: 1.5em;
+        margin-left: 0.5em
+    }
+}
+
+@media screen and (max-width: 376px) {
+    .barra {
+        width: 80%;
+    }
+    #icone {
+        margin-top: 1.5em;
+        margin-left: 0.5em
+    }
+}
