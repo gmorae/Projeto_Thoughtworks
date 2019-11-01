@@ -4,21 +4,21 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace api_tw.Models
 {
-    public partial class easyTalkContext : DbContext
+    public partial class EasyTalkContext : DbContext
     {
-        public easyTalkContext()
+        public EasyTalkContext()
         {
         }
 
-        public easyTalkContext(DbContextOptions<easyTalkContext> options)
+        public EasyTalkContext(DbContextOptions<EasyTalkContext> options)
             : base(options)
         {
         }
 
-        public virtual DbSet<Categoria> Categoria { get; set; }
+        public virtual DbSet<CategoriaModel> Categoria { get; set; }
         public virtual DbSet<Eventos> Eventos { get; set; }
-        public virtual DbSet<TipoUsuario> TipoUsuario { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<TipoUsuarioModel> TipoUsuario { get; set; }
+        public virtual DbSet<UsuarioModel> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -30,7 +30,7 @@ namespace api_tw.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categoria>(entity =>
+            modelBuilder.Entity<CategoriaModel>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
                     .HasName("PK__categori__CD54BC5A3D0741D6");
@@ -63,7 +63,7 @@ namespace api_tw.Models
                     .HasConstraintName("FK__eventos__id_usua__403A8C7D");
             });
 
-            modelBuilder.Entity<TipoUsuario>(entity =>
+            modelBuilder.Entity<TipoUsuarioModel>(entity =>
             {
                 entity.HasKey(e => e.IdTipo)
                     .HasName("PK__tipo_usu__CF901089B1AC7AF2");
@@ -71,7 +71,7 @@ namespace api_tw.Models
                 entity.Property(e => e.NomeTipoUsuario).IsUnicode(false);
             });
 
-            modelBuilder.Entity<Usuario>(entity =>
+            modelBuilder.Entity<UsuarioModel>(entity =>
             {
                 entity.HasKey(e => e.IdUsuario)
                     .HasName("PK__usuario__4E3E04AD337BE144");

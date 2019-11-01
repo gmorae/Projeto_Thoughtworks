@@ -1,9 +1,10 @@
-using System.Collections.Generic;
+using  System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace api_tw.Controllers {
     [Route ("api/[controller]")]
@@ -11,11 +12,11 @@ namespace api_tw.Controllers {
     [Produces ("application/json")]
 
     public class TipoUsuarioController : ControllerBase {
-        TipoUsuarioRepositorio repositorio = new TipoUsuarioRepositorio ();
+        TipoUsuarioRepository repositorio = new TipoUsuarioRepository ();
 
         [HttpGet]
         [Authorize(Roles="Administrador")]
-        public async Task<ActionResult<List<TipoUsuario>>> Get () {
+        public async Task<ActionResult<List<TipoUsuarioModel>>> Get () {
             try {
                 return await repositorio.Get ();
             } catch (System.Exception) {
@@ -25,7 +26,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpGet ("{id}")]
-        public async Task<ActionResult<TipoUsuario>> Get (int id) {
+        public async Task<ActionResult<TipoUsuarioModel>> Get (int id) {
 
             try {
                 return await repositorio.Get (id);
@@ -36,7 +37,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpPost]
-        public async Task<ActionResult<TipoUsuario>> Post (TipoUsuario tipoUsuario) {
+        public async Task<ActionResult<TipoUsuarioModel>> Post (TipoUsuarioModel tipoUsuario) {
             try {
                 return await repositorio.Post (tipoUsuario);
             } catch (System.Exception) {
@@ -45,7 +46,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpPut ("{id}")]
-        public async Task<ActionResult<TipoUsuario>> Put (int id, TipoUsuario tipoUsuario) {
+        public async Task<ActionResult<TipoUsuarioModel>> Put (int id, TipoUsuarioModel tipoUsuario) {
             if (id != tipoUsuario.IdTipo) {
                 return NotFound ();
             }
@@ -64,7 +65,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpDelete ("{id}")]
-        public async Task<ActionResult<TipoUsuario>> Delete (int id) {
+        public async Task<ActionResult<TipoUsuarioModel>> Delete (int id) {
             var buscarId = await repositorio.Get (id);
             if (buscarId == null) {
                 return NotFound ();

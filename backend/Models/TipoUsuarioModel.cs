@@ -6,11 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace api_tw.Models
 {
     [Table("tipo_usuario")]
-    public partial class TipoUsuario
+    public partial class TipoUsuarioModel
     {
-        public TipoUsuario()
+        public TipoUsuarioModel()
         {
-            Usuario = new HashSet<Usuario>();
+            Usuario = new HashSet<UsuarioModel>();
         }
 
         [Key]
@@ -21,6 +21,6 @@ namespace api_tw.Models
         public string NomeTipoUsuario { get; set; }
 
         [InverseProperty("IdTipoNavigation")]
-        public virtual ICollection<Usuario> Usuario { get; set; }
+        public virtual ICollection<UsuarioModel> Usuario { get; set; }
     }
 }

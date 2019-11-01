@@ -22,7 +22,7 @@ namespace backend.Controllers
         [HttpPost]
         public IActionResult BuscarEmailSenha(LoginViewModel login)
         {
-            UsuarioRepositorio repo = new UsuarioRepositorio();
+            UsuarioRepository repo = new UsuarioRepository();
             try
             {
                 var usuario = repo.BuscarPorEmailSenha(login.Email, login.Senha);

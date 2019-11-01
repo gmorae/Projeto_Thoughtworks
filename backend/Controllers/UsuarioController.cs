@@ -9,11 +9,11 @@ namespace api_tw.Controllers {
     [ApiController]
     public class UsuarioController : ControllerBase {
 
-        UsuarioRepositorio repositorio = new UsuarioRepositorio ();
+        UsuarioRepository repositorio = new UsuarioRepository ();
 
         [HttpGet]
 
-        public async Task<ActionResult<List<Usuario>>> Get () {
+        public async Task<ActionResult<List<UsuarioModel>>> Get () {
             try {
                 var list = await repositorio.Get ();
                 foreach (var item in list) {
@@ -28,7 +28,7 @@ namespace api_tw.Controllers {
 
         [HttpGet ("{id}")]
 
-        public async Task<ActionResult<Usuario>> GetAction (int id) {
+        public async Task<ActionResult<UsuarioModel>> GetAction (int id) {
             try {
                 return await repositorio.Get(id);
             } catch (System.Exception) {
@@ -39,7 +39,7 @@ namespace api_tw.Controllers {
 
         [HttpPost]
 
-        public async Task<ActionResult<Usuario>> Post (Usuario usuario) {
+        public async Task<ActionResult<UsuarioModel>> Post (UsuarioModel usuario) {
             try {
                 return await repositorio.Post (usuario);
             } catch (System.Exception) {
@@ -49,7 +49,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpPut ("{id}")]
-        public async Task<ActionResult<Usuario>> Put (int id, Usuario usuario) {
+        public async Task<ActionResult<UsuarioModel>> Put (int id, UsuarioModel usuario) {
             if (id != usuario.IdUsuario) {
                 return BadRequest ();
             }
@@ -68,7 +68,7 @@ namespace api_tw.Controllers {
         }
 
         [HttpDelete ("{id}")]
-        public async Task<ActionResult<Usuario>> Delete (int id) {
+        public async Task<ActionResult<UsuarioModel>> Delete (int id) {
             var buscaId = await repositorio.Get (id);
             if (buscaId == null) {
                 return NotFound ();

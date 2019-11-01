@@ -12,11 +12,11 @@ namespace api_tw.Controllers
 
     public class CategoriaController : ControllerBase
     {
-        CategoriaRepositorio repositorio = new CategoriaRepositorio();
+        CategoriaRepository repositorio = new CategoriaRepository();
 
         [Authorize(Roles= "Administrador")]
         [HttpGet]
-        public async Task<ActionResult<List<Categoria>>> Get()
+        public async Task<ActionResult<List<CategoriaModel>>> Get()
         {
             try
             {
@@ -31,7 +31,7 @@ namespace api_tw.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Categoria>> Get(int id)
+        public async Task<ActionResult<CategoriaModel>> Get(int id)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace api_tw.Controllers
 
         [HttpPost]
 
-        public async Task<ActionResult<Categoria>> Post(Categoria categoria)
+        public async Task<ActionResult<CategoriaModel>> Post(CategoriaModel categoria)
         {
             try
             {
@@ -61,7 +61,7 @@ namespace api_tw.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<Categoria>> Put(int id, Categoria categoria)
+        public async Task<ActionResult<CategoriaModel>> Put(int id, CategoriaModel categoria)
         {
             if (id != categoria.IdCategoria)
             {
@@ -87,7 +87,7 @@ namespace api_tw.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Categoria>> Delete(int id)
+        public async Task<ActionResult<CategoriaModel>> Delete(int id)
         {
             var buscaId = await repositorio.Get(id);
             if (buscaId == null)
