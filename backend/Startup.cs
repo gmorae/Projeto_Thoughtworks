@@ -17,6 +17,7 @@ using Newtonsoft.Json;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.IO;
+using Microsoft.AspNetCore.Cors;
 
 
 namespace api_tw
@@ -77,6 +78,7 @@ namespace api_tw
             app.UseRouting();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {
