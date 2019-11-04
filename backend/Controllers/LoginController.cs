@@ -4,7 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using api_tw.Models;
-using api_tw.Repositorio;
+using api_tw.Repositories;
 using backend.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace backend.Controllers
         [HttpPost]
         public IActionResult BuscarEmailSenha(LoginViewModel login)
         {
-            UsuarioRepositorio repo = new UsuarioRepositorio();
+            UsuarioRepository repo = new UsuarioRepository();
             try
             {
                 var usuario = repo.BuscarPorEmailSenha(login.Email, login.Senha);

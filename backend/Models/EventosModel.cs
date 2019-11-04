@@ -33,13 +33,13 @@ namespace api_tw.Models
         public int? IdResponsavel { get; set; }
 
         [ForeignKey(nameof(IdCategoria))]
-        [InverseProperty(nameof(Categoria.Eventos))]
-        public virtual Categoria IdCategoriaNavigation { get; set; }
+        [InverseProperty(nameof(CategoriaModel.Eventos))]
+        public virtual CategoriaModel IdCategoriaNavigation { get; set; }
         [ForeignKey(nameof(IdResponsavel))]
-        [InverseProperty(nameof(Usuario.EventosIdResponsavelNavigation))]
-        public virtual Usuario IdResponsavelNavigation { get; set; }
+        [InverseProperty(nameof(UsuarioModel.EventosIdResponsavelNavigation))]
+        public virtual UsuarioModel IdResponsavelNavigation { get; set; }
         [ForeignKey(nameof(IdUsuario))]
-        [InverseProperty(nameof(Usuario.EventosIdUsuarioNavigation))]
-        public virtual Usuario IdUsuarioNavigation { get; set; }
+        [InverseProperty(nameof(UsuarioModel.EventosIdUsuarioNavigation))]
+        public virtual UsuarioModel IdUsuarioNavigation { get; set; }
     }
 }

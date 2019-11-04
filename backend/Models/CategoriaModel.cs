@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace api_tw.Models
 {
     [Table("categoria")]
-    public partial class Categoria
+    public partial class CategoriaModel
     {
-        public Categoria()
+        public CategoriaModel()
         {
             Eventos = new HashSet<Eventos>();
         }
