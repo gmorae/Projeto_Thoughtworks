@@ -95,7 +95,7 @@ body {
 .fa-bars {
     display: block;
     font-size: 2em;
-    color: var(--black)
+    color: var(--black);
 }
 
 .barra {
@@ -154,7 +154,7 @@ nav img {
 
 .card {
     background: var(--white);
-    width: 20vw;
+    width: 25vw;
     height: 30vh;
     margin: 0.5em;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
@@ -197,6 +197,19 @@ nav img {
         margin-top: 1.5em;
         margin-left: 0.5em
     }
+    .input_menu {
+        display: none;
+    }
+    .card_flex {
+        flex-wrap: wrap;
+    }
+    .card {
+        width: 35vw;
+    }
+    .fa-bars:before {
+        content: "\f0c9";
+        margin-left: 0.5em;
+    }
 }
 
 @media screen and (max-width: 376px) {
@@ -206,5 +219,11 @@ nav img {
     #icone {
         margin-top: 1.5em;
         margin-left: 0.5em
+    }
+    .input_menu {
+        display: none;
+    }
+    .card_flex {
+        flex-wrap: wrap;
     }
 }
