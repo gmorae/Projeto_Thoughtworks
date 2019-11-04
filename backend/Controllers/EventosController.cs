@@ -2,32 +2,37 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using backend.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
-    [Route("api/[controller")]
+    [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
     public class EventosController : ControllerBase
     {
         EventosRepository eventosRepository = new EventosRepository();
-        
+
         [HttpGet]
+        [Authorize(Roles = "Comunidade")]
+
         public async Task<ActionResult<List<Eventos>>> Get()
         {
             try
             {
                 List<Eventos> listaDeEventos = await eventosRepository.Get();
-            if (listaDeEventos == null){
-                return NotFound();
-            }
-            foreach (Eventos item in listaDeEventos){
-                item.IdCategoriaNavigation.Eventos = null;
-                item.IdResponsavelNavigation.EventosIdResponsavelNavigation = null;
-            }
-            return listaDeEventos;
+                if (listaDeEventos == null)
+                {
+                    return NotFound();
+                }
+                foreach (Eventos item in listaDeEventos)
+                {
+                    item.IdCategoriaNavigation.Eventos = null;
+                    item.IdResponsavelNavigation.EventosIdResponsavelNavigation = null;
+                }
+                return listaDeEventos;
             }
             catch (System.Exception)
             {
@@ -35,16 +40,18 @@ namespace backend.Controllers
             }
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Eventos>> Get(int id){
+        public async Task<ActionResult<Eventos>> Get(int id)
+        {
             try
             {
                 Eventos listaDeEventos = await eventosRepository.Get(id);
 
-            if (listaDeEventos == null){
-                return NotFound();
-            }
-            
-            return listaDeEventos;
+                if (listaDeEventos == null)
+                {
+                    return NotFound();
+                }
+
+                return listaDeEventos;
 
             }
             catch (System.Exception)
@@ -53,7 +60,8 @@ namespace backend.Controllers
             }
         }
         [HttpPost]
-        public async Task<ActionResult<Eventos>> Post(Eventos eventos){
+        public async Task<ActionResult<Eventos>> Post(Eventos eventos)
+        {
             try
             {
                 return await eventosRepository.Post(eventos);
@@ -64,32 +72,39 @@ namespace backend.Controllers
             }
         }
         [HttpPut("{id}")]
-        public async Task<ActionResult<Eventos>> Put(int id, Eventos eventos){
-            if (id != eventos.IdEvento){
+        public async Task<ActionResult<Eventos>> Put(int id, Eventos eventos)
+        {
+            if (id != eventos.IdEvento)
+            {
                 return BadRequest();
             }
             try
             {
                 return await eventosRepository.Put(eventos);
             }
-            catch (DbUpdateException ){  
+            catch (DbUpdateException)
+            {
                 var eventosValida = eventosRepository.Get(id);
-                if (eventosValida == null){
+                if (eventosValida == null)
+                {
                     return NotFound();
                 }
-                else{
+                else
+                {
 
-                throw;
+                    throw;
 
                 }
             }
         }
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Eventos>> Delete(int id){
+        public async Task<ActionResult<Eventos>> Delete(int id)
+        {
             try
             {
                 Eventos eventosRetornado = await eventosRepository.Get(id);
-                if (eventosRepository == null){
+                if (eventosRepository == null)
+                {
                     return NotFound();
                 }
                 await eventosRepository.Delete(eventosRetornado);
