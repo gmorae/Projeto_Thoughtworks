@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_tw.Controllers
@@ -13,7 +14,8 @@ namespace api_tw.Controllers
     public class CategoriaController : ControllerBase
     {
         CategoriaRepository repositorio = new CategoriaRepository();
-
+        
+        [EnableCors]
         [Authorize(Roles= "Administrador")]
         [HttpGet]
         public async Task<ActionResult<List<CategoriaModel>>> Get()
