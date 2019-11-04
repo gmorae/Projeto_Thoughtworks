@@ -69,8 +69,7 @@ namespace api_tw
                 options.AddDefaultPolicy(
                 builder =>
                 {
-                    builder.WithOrigins("*").WithHeaders("X-custom-header");
-                    builder.WithMethods("Get, Post, Put, Delete");
+                    builder.WithOrigins("*").WithHeaders("X-custom-header").AllowCredentials().WithMethods("Get, Post, Put, Delete");
                 });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
