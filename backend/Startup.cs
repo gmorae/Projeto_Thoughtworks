@@ -91,7 +91,7 @@ namespace api_tw
 
             app.UseAuthorization();
 
-            // app.UseCors();
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
