@@ -15,6 +15,13 @@ namespace api_tw.Controllers {
         TipoUsuarioRepository repositorio = new TipoUsuarioRepository ();
 
         [HttpGet]
+        /// <summary>
+        /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+        /// É um metodo que retorna os tipo de usuario do banco.
+        /// </summary>
+        /// <returns>
+        /// Retorna os tipos de usuarios ja criado no banco.
+        /// </returns>
         [Authorize(Roles="Administrador")]
         public async Task<ActionResult<List<TipoUsuarioModel>>> Get () {
             try {
@@ -26,6 +33,13 @@ namespace api_tw.Controllers {
         }
 
         [HttpGet ("{id}")]
+         /// <summary>
+        /// É um metodo que retorna o tipo do usuario do banco pelo Id especifico.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Retorna o tipo do usuario pelo Id especificado.
+        /// </returns>
         public async Task<ActionResult<TipoUsuarioModel>> Get (int id) {
 
             try {
@@ -37,6 +51,14 @@ namespace api_tw.Controllers {
         }
 
         [HttpPost]
+        /// <summary>
+        /// O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+        /// É um metodo que cria um tipo de usuario.
+        /// </summary>
+        /// <param name="tipoUsuario"></param>
+        /// <returns>
+        /// Retorna o tipo do usuario criado.
+        /// </returns>
         public async Task<ActionResult<TipoUsuarioModel>> Post (TipoUsuarioModel tipoUsuario) {
             try {
                 return await repositorio.Post (tipoUsuario);
@@ -46,6 +68,14 @@ namespace api_tw.Controllers {
         }
 
         [HttpPut ("{id}")]
+        /// <summary>
+        /// metodo que atualiza o tipo de usuario pelo id especificado.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="tipoUsuario"></param>
+        /// <returns>
+        /// retorna o tipo do usuario atualizado
+        /// </returns>
         public async Task<ActionResult<TipoUsuarioModel>> Put (int id, TipoUsuarioModel tipoUsuario) {
             if (id != tipoUsuario.IdTipo) {
                 return NotFound ();
@@ -65,6 +95,13 @@ namespace api_tw.Controllers {
         }
 
         [HttpDelete ("{id}")]
+        /// <summary>
+        /// O método DELETE remove um recurso específico do banco por id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Retorna o banco sem o id especifico do tipo do usuario.
+        /// </returns>
         public async Task<ActionResult<TipoUsuarioModel>> Delete (int id) {
             var buscarId = await repositorio.Get (id);
             if (buscarId == null) {
