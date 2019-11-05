@@ -23,7 +23,11 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+th,
+td,
+p
+ {
     font-family: var(--texto);
 }
 
@@ -190,7 +194,7 @@ nav img {
 }
 
 .texto{
-    width: 35%;
+    /* width: 35%; */
     display: flex;
     justify-content: center;
     align-items: center
@@ -200,6 +204,7 @@ nav img {
 
 table {
     margin: auto;
+    /* margin-bottom: 5em; */
     justify-content: center;
     border-collapse: collapse;
     box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3);
@@ -218,14 +223,15 @@ tbody {
 
 th {
     padding: 1em 3em;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     border: none;
     color: #607286;
+    text-transform: capitalize;
 }
 
 td {
     padding: 1em 3em;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border: none;
     border-color: #2222;
     background-color: #fff;
@@ -243,6 +249,19 @@ th {
 
 h1 {
     margin: 1em;
+    text-transform: uppercase;
+}
+
+.posicionamento{
+    margin-left: 1em;
+}
+
+.posicionamento_opcoes{
+    margin-left: 2em;
+}
+
+.nome_responsavel{
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 769px) {

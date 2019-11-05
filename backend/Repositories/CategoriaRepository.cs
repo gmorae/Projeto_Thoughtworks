@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using api_tw.Interfaces;
 using api_tw.Models;
@@ -12,7 +13,7 @@ namespace api_tw.Repositories
 
         public async Task<List<CategoriaModel>> Get()
         {
-            return await context.Categoria.ToListAsync();   
+            return await context.Categoria.ToListAsync();
         }
 
         public async Task<CategoriaModel> Get(int id)
@@ -39,6 +40,13 @@ namespace api_tw.Repositories
             context.Categoria.Remove(categoria);
             await context.SaveChangesAsync();
             return categoria;
+        }
+
+        public async Task<List<CategoriaModel>> Get(string nomeCategoria)
+        {
+            List<CategoriaModel> lstCategoria = await context.Categoria.Where(c => c.NomeCategoria == nomeCategoria).ToListAsync();
+
+            return lstCategoria;
         }
     }
 }

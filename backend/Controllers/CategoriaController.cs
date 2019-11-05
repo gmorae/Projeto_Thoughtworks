@@ -16,7 +16,7 @@ namespace api_tw.Controllers
         CategoriaRepository repositorio = new CategoriaRepository();
         
         [EnableCors]
-        [Authorize(Roles= "Administrador")]
+        // [Authorize(Roles= "Administrador")]
         [HttpGet]
         public async Task<ActionResult<List<CategoriaModel>>> Get()
         {
@@ -31,6 +31,22 @@ namespace api_tw.Controllers
             }
 
         }
+        
+        [HttpGet("{categoria}")]
+        public async Task<ActionResult<List<CategoriaModel>>> Get(string categoria)
+        {
+            try
+            {
+                List<CategoriaModel> lstCategoria = await repositorio.Get(categoria);
+
+                return lstCategoria;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CategoriaModel>> Get(int id)
