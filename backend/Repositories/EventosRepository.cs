@@ -79,5 +79,15 @@ namespace backend.Repositories
                 return evento;
             }
         }
+
+        public async Task<List<Eventos>> GetEventos(string evento)
+        {
+            using (EasyTalkContext context = new EasyTalkContext())
+            {
+                List<Eventos> listevent = await context.Eventos.Where(c => c.NomeEvento.Contains(evento) || c.Descricao.Contains(evento)).ToListAsync();
+
+                return listevent;
+            }
+        }
     }
 }

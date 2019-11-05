@@ -11,6 +11,7 @@ namespace backend.Interfaces
         Task<List<Eventos>> GetAguardando();
         Task<List<Eventos>> GetReprovado();
         Task<Eventos> Get(int id);
+        Task<List<Eventos>> GetEventos(string evento);
         Task<Eventos> Post(Eventos evento);
         Task<Eventos> Put(Eventos evento);
         Task<Eventos> Delete(Eventos evento);

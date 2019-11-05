@@ -115,6 +115,22 @@ namespace backend.Controllers
                 throw;
             }
         }
+
+        [HttpGet("busca/{evento}")]
+        public async Task<ActionResult<List<Eventos>>> GetEventos(string evento)
+        {
+             try
+            {
+                List<Eventos> listEvent = await eventosRepository.GetEventos(evento);
+
+                return listEvent;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
         [HttpPost]
         public async Task<ActionResult<Eventos>> Post(Eventos eventos)
         {
