@@ -8,6 +8,7 @@ namespace api_tw.Interfaces
     {
          Task<List<CategoriaModel>> Get();
 
+         Task<List<CategoriaModel>> Get(string nomeCategoria);
          Task<CategoriaModel> Get(int id);
 
          Task<CategoriaModel> Post (CategoriaModel categoria);
