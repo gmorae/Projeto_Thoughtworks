@@ -65,6 +65,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: fbfbfb;
     /* margin-left: 0.5em */
 }
 
@@ -292,7 +293,11 @@ li{
 
 @media screen and (max-width: 769px) {
     .barra {
-        width: 35%
+        width: 35%;
+        height: 138vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     #icone {
         margin-top: 1.5em;
@@ -311,6 +316,15 @@ li{
         content: "\f0c9";
         margin-left: 0.5em;
     }
+    #icone {
+        margin-top: 1em;
+    }
+    .tamanho {
+        margin-left: 20em;
+    }
+    nav {
+        height: 100vh;
+    }
 }
 
 @media screen and (max-width: 376px) {
@@ -327,4 +341,13 @@ li{
     .card_flex {
         flex-wrap: wrap;
     }
+    .card {
+        width: 80vw;
+        height: 40vh;
+    }
+    #topo_mobile_home {
+        width: 100vw;
+    }
 }
+
+s

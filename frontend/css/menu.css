@@ -22,7 +22,6 @@
 }
 
 .menu {
-    justify-content: space-around;
     height: 17vh;
     align-items: center
 }
@@ -43,7 +42,7 @@
 }
 
 .logo {
-    width: 40%;
+    width: 25vw;
     margin-top: 1em;
 }
 
@@ -60,7 +59,11 @@
 .botao {
     background: var(--red);
     border-radius: 15px;
-    padding: 20px 15px;
+    padding: 1.5em 2em;
+}
+
+.nav_home {
+    margin-left: 15em;
 }
 
 @media screen and (max-width: 768px) {

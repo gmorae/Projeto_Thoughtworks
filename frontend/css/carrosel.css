@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.none {
+    display: none;
+}
+
+.botao_frente {
+    width: 3em;
+    height: 3em;
+    background-color: #eeee;
+}
+
+button {
+    background-color: #fff;
+    color: black;
+    border: none
+}
+
+#botao_frente {
+    width: 4em;
+    height: 10vh;
+}
+
+#botao_atras {
+    width: 4em;
+    height: 10vh;
+}
+
+.carrosel_home {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2em 20em;
+}
+
+.imagem_carrosel {
+    width: 50vw;
+    height: 50vh;
+}
+
+h2 {
+    font-family: "open sans";
+    text-align: center;
+    margin-top: 1em;
+    font-size: 35pt;
+}
+
+.fa-angle-left,
+.fa-chevron-right {
+    font-size: 25pt;
+}
