@@ -23,7 +23,11 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+th,
+td,
+p
+ {
     font-family: var(--texto);
 }
 
@@ -188,6 +192,77 @@ nav img {
 .perfil {
     display: flex;
     flex-direction: column;
+}
+
+.texto{
+    /* width: 35%; */
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+
+
+table {
+    margin: auto;
+    /* margin-bottom: 5em; */
+    justify-content: center;
+    border-collapse: collapse;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3);
+}
+
+tbody {
+    background: rebeccapurple;
+}
+
+.cor {
+    color: var(--red);
+    text-transform: uppercase;
+    font-weight: bolder;
+    /* padding: 0em 1.5em; */
+}
+
+th {
+    padding: 1em 3em;
+    font-size: 1.3rem;
+    border: none;
+    color: #607286;
+    text-transform: capitalize;
+}
+
+td {
+    padding: 1em 3em;
+    font-size: 1.3rem;
+    border: none;
+    border-color: #2222;
+    background-color: #fff;
+    border-style: solid;
+    border-bottom-width: 2px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-left-width: 0;
+}
+
+th {
+    border: none;
+    background: #d9e2e7;
+}
+
+h1 {
+    margin: 1em;
+    text-transform: uppercase;
+}
+
+.posicionamento{
+    margin-left: 1em;
+}
+
+.posicionamento_opcoes{
+    margin-left: 2em;
+}
+
+.nome_responsavel{
+    text-transform: capitalize;
 }
 
 @media screen and (max-width: 769px) {

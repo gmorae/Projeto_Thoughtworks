@@ -15,9 +15,16 @@ namespace api_tw.Controllers
     {
         CategoriaRepository repositorio = new CategoriaRepository();
         
+        /// <summary>
+        /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+        /// É um metodo que retorna as categoria do banco.
+        /// </summary>
+        /// <returns>
+        /// Retorna as categoria do banco.
+        /// </returns>
         [EnableCors]
-        [Authorize(Roles= "Administrador")]
-        [HttpGet]
+        // [Authorize(Roles= "Administrador")]
+        [HttpGet]        
         public async Task<ActionResult<List<CategoriaModel>>> Get()
         {
             try
@@ -31,7 +38,37 @@ namespace api_tw.Controllers
             }
 
         }
+        
+        /// <summary>
+        /// É um metodo que retorna as categoria do banco pela categoria informada pelo usuario.
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns>
+        /// Retorna a categoria escolhida.
+        /// </returns>
+        [HttpGet("{categoria}")]
+        public async Task<ActionResult<List<CategoriaModel>>> Get(string categoria)
+        {
+            try
+            {
+                List<CategoriaModel> lstCategoria = await repositorio.Get(categoria);
 
+                return lstCategoria;
+            }
+            catch (System.Exception)
+            {
+                throw;
+            }
+        }
+
+
+        /// <summary>
+        /// É um metodo que retorna a categoria do banco pelo Id especifico.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Retorna categoria pelo Id especificado.
+        /// </returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<CategoriaModel>> Get(int id)
         {
@@ -46,6 +83,14 @@ namespace api_tw.Controllers
 
         }
 
+        /// <summary>
+        /// O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+        /// É um metodo que cria uma categoria.
+        /// </summary>
+        /// <param name="categoria"></param>
+        /// <returns>
+        /// Retorna a categoria criada.
+        /// </returns>
         [HttpPost]
 
         public async Task<ActionResult<CategoriaModel>> Post(CategoriaModel categoria)
@@ -62,6 +107,15 @@ namespace api_tw.Controllers
         }
 
 
+        /// <summary>
+        /// O método PUT substitui as alterações antigas pela novas carga dos dados.
+        /// É um metodo que atualiza o banco das categorias.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="categoria"></param>
+        /// <returns>
+        /// Retorna o banco atualizado pelo id.
+        /// </returns>
         [HttpPut("{id}")]
         public async Task<ActionResult<CategoriaModel>> Put(int id, CategoriaModel categoria)
         {
@@ -88,6 +142,13 @@ namespace api_tw.Controllers
             return categoria;
         }
 
+        /// <summary>
+        /// O método DELETE remove um recurso específico do banco por id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Retorna o banco sem a categoria removida especificada pelo id.
+        /// </returns>
         [HttpDelete("{id}")]
         public async Task<ActionResult<CategoriaModel>> Delete(int id)
         {
