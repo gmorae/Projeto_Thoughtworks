@@ -13,7 +13,6 @@ namespace backend.Controllers {
     public class EventosController : ControllerBase {
         EventosRepository eventosRepository = new EventosRepository ();
 
-        [HttpGet]
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
         /// É um metodo que retorna os eventos do banco.
@@ -21,6 +20,7 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna os eventos ja criados do banco.
         /// </returns>
+        [HttpGet]
 
         public async Task<ActionResult<List<Eventos>>> Get () {
             try {
@@ -38,13 +38,13 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpGet ("aprovado")]
         /// <summary>
         /// É um metodo que retorna as os eventos aprovados do banco.
         /// </summary>
         /// <returns>
         /// Retorna todos eventos aprovados
         /// </returns>
+        [HttpGet ("aprovado")]
         public async Task<ActionResult<List<Eventos>>> GetAprovados () {
             try {
                 List<Eventos> listApro = await eventosRepository.GetAprovado ();
@@ -59,13 +59,13 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpGet ("aguardando")]
         /// <summary>
         /// É um metodo que retorna as os eventos que estão aguardando aprovação ou rejeição.
         /// </summary>
         /// <returns>
         /// Retorna todos eventos que estão aguandando uma resposta.
         /// </returns>
+        [HttpGet ("aguardando")]
 
         public async Task<ActionResult<List<Eventos>>> GetAguardando () {
             try {
@@ -81,14 +81,14 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpGet ("reprovado")]
-
         /// <summary>
         /// É um metodo que retorna as os eventos reprovados do banco.
         /// </summary>
         /// <returns>
         /// Retorna todos eventos reprovados.
         /// </returns>
+        [HttpGet ("reprovado")]
+
         public async Task<ActionResult<List<Eventos>>> GetReprovado () {
             try {
                 List<Eventos> listRepro = await eventosRepository.GetReprovado ();
@@ -103,7 +103,6 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpGet ("{id}")]
         /// <summary>
         ///  É um metodo que retorna o evento pelo id especifico.
         /// </summary>
@@ -111,6 +110,7 @@ namespace backend.Controllers {
         /// <returns>
         /// retorna o evento pelo id especificado.
         /// </returns>
+        [HttpGet ("{id}")]
         public async Task<ActionResult<Eventos>> Get (int id) {
             try {
                 Eventos listaDeEventos = await eventosRepository.Get (id);
@@ -126,7 +126,6 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpGet ("busca/{evento}")]
         /// <summary>
         /// É um metodo que busca alguma informação nos evento.
         /// </summary>
@@ -134,6 +133,7 @@ namespace backend.Controllers {
         /// <returns>
         /// retorna a informação especificada do evento.
         /// </returns>
+        [HttpGet ("busca/{evento}")]
         public async Task<ActionResult<List<Eventos>>> GetEventos (string evento) {
             try {
                 List<Eventos> listEvent = await eventosRepository.GetEventos (evento);
@@ -144,15 +144,15 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpPost]
         /// <summary>
         /// O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
         /// É um metodo que cria um evento.
         /// </summary>
-        /// <param name="evento"></param>
+        /// <param name="eventos"></param>
         /// <returns>
         /// Retorna o evento criado.
         /// </returns>
+        [HttpPost]
         public async Task<ActionResult<Eventos>> Post (Eventos eventos) {
             try {
                 return await eventosRepository.Post (eventos);
@@ -161,7 +161,6 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpPut ("{id}")]
         /// <summary>
         /// O método PUT substitui as as alterações antigas pelas novas cargass de dados.
         /// É um metodo que atualiza o banco dos eventos.
@@ -171,6 +170,7 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna o banco atualizado pelo id.
         /// </returns>
+        [HttpPut ("{id}")]
         public async Task<ActionResult<Eventos>> Put (int id, Eventos eventos) {
             if (id != eventos.IdEvento) {
                 return BadRequest ();
@@ -189,8 +189,6 @@ namespace backend.Controllers {
             }
         }
 
-        [HttpDelete ("{id}")]
-    
         /// <summary>
         /// O método DELETE remove um recurso específico do banco por id.
         /// </summary>
@@ -198,6 +196,8 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna o banco sem o id especifico do evento deletado.
         /// </returns>
+        [HttpDelete ("{id}")]
+    
         public async Task<ActionResult<Eventos>> Delete (int id) {
             try {
                 Eventos eventosRetornado = await eventosRepository.Get (id);
