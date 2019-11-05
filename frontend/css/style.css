@@ -91,7 +91,7 @@ h5 {
     width: 28em;
     border: none;
     font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     -webkit-appearance: button;
     appearance: button;
     outline: none;
@@ -110,7 +110,7 @@ h5 {
     width: 28em;
     border: none;
     font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px s5px rgba(0, 0, 0, 0.3);
     -webkit-appearance: button;
     appearance: button;
     outline: none;
@@ -613,17 +613,18 @@ main {
     width: 25vw;
     height: 38vh;
     margin-bottom: 2em;
-    border-radius: 10px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
 .eventos_card img {
     width: 100%;
-    border-radius: 10px
+    border-radius: 5px
 }
 
-.eventos_eventos_conteudo {
-    margin-left: 5px;
+.eventos_card_conteudo {
+    width: 93%;
+    margin: auto
 }
 
 .eventos_calendario {
@@ -693,8 +694,9 @@ main {
     background: var(--white);
     width: 50%;
     height: 90vh;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     align-items: center;
+    margin-bottom: 5em
 }
 
 .cadastro_quadrado_branco h1 {
@@ -718,7 +720,7 @@ main {
     width: 28em;
     border: none;
     font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
     -webkit-appearance: button;
     appearance: button;
     outline: none;
@@ -805,7 +807,7 @@ main {
     width: 28em;
     border: none;
     font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
     -webkit-appearance: button;
     appearance: button;
     outline: none;
