@@ -16,7 +16,6 @@ namespace backend.Controllers
         EventosRepository eventosRepository = new EventosRepository();
 
         [HttpGet]
-        [Authorize(Roles = "Comunidade")]
 
         public async Task<ActionResult<List<Eventos>>> Get()
         {
@@ -39,6 +38,63 @@ namespace backend.Controllers
                 throw;
             }
         }
+
+        [HttpGet("aprovado")]
+        public async Task<ActionResult<List<Eventos>>> GetAprovados(){
+            try
+            {
+                List<Eventos> listApro = await eventosRepository.GetAprovado();
+                if (listApro == null)
+                {
+                    return NotFound();
+                }
+                return listApro;
+
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
+        [HttpGet("aguardando")]
+        public async Task<ActionResult<List<Eventos>>> GetAguardando(){
+            try
+            {
+                List<Eventos> listAguard = await eventosRepository.GetAguardando();
+                if (listAguard == null)
+                {
+                    return NotFound();
+                }
+                return listAguard;
+
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+        [HttpGet("reprovado")]
+        public async Task<ActionResult<List<Eventos>>> GetReprovado(){
+            try
+            {
+                List<Eventos> listRepro = await eventosRepository.GetReprovado();
+                if (listRepro == null)
+                {
+                    return NotFound();
+                }
+                return listRepro;
+
+            }
+            catch (System.Exception)
+            {
+                
+                throw;
+            }
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Eventos>> Get(int id)
         {
