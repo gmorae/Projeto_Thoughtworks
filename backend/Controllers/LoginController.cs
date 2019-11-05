@@ -17,7 +17,14 @@ namespace backend.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-    
+
+        private IConfiguration _config;
+
+        public LoginController(IConfiguration config)
+        {
+            _config = config;
+        }
+
         [AllowAnonymous]
         [HttpPost]
         public IActionResult BuscarEmailSenha(LoginViewModel login)
@@ -26,6 +33,9 @@ namespace backend.Controllers
             try
             {
                 var usuario = repo.BuscarPorEmailSenha(login.Email, login.Senha);
+                var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt"]));
+                var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
                 if (usuario == null)
                 {
                     return NotFound("Usuario não encontrado!");
@@ -43,7 +53,8 @@ namespace backend.Controllers
                     issuer: "easyTalk",
                     audience: "easyTalk",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(30)
+                    expires: DateTime.Now.AddMinutes(30),
+                    signingCredentials: credentials
                 );
 
                 return Ok(new { token = new JwtSecurityTokenHandler().WriteToken(token) });
