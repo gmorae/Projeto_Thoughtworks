@@ -45,6 +45,14 @@ body {
     display: none;
 }
 
+.none{
+    display: none;
+}
+
+.flex{
+    display: flex;
+}
+
 #icone {
     cursor: pointer;
     position: absolute;
@@ -262,6 +270,24 @@ h1 {
 
 .nome_responsavel{
     text-transform: capitalize;
+}
+
+li{
+  list-style-type: none;
+}
+
+.slides{
+    justify-content: center;
+}
+
+.botao_slider{
+    width: 1em;
+    height: 1em;
+    margin: 1.5em 2em;
+}
+
+.slides{
+    display: flex;
 }
 
 @media screen and (max-width: 769px) {
