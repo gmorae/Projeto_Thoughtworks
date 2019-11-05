@@ -53,6 +53,10 @@ h5 {
     flex-direction: column;
 }
 
+.menu {
+    justify-content: space-around;
+}
+
 .home_titulo {
     text-align: center;
     color: white;
@@ -134,6 +138,10 @@ h5 {
     font-weight: lighter;
 }
 
+.barra {
+    margin-right: 1em;
+}
+
 .home_cat i {
     font-size: 2em;
     margin-top: 0.3em;
@@ -169,7 +177,6 @@ h5 {
 
 .flex {
     display: flex;
-    justify-content: center;
 }
 
 .home_card {

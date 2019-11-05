@@ -9,17 +9,19 @@
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/menu_mobile.css">
-    <script src="https://kit.fontawesome.com/86d4fe3a19.js"></script>
     <link rel="stylesheet" href="css/rodape.css">
+    <link rel="stylesheet" href="css/carrosel.css">
+
+    <script src="https://kit.fontawesome.com/86d4fe3a19.js"></script>
 </head>
 
 <body>
     <header id="topo_web">
         <nav class="menu flex">
             <a href="index.html">
-                <img class="logo" src="imagens/logo.png" alt="Logo da empresa">
+                <img class="logo" src="imagens/Easy-Talk.png" alt="Logo da empresa">
             </a>
-            <ul class="flex">
+            <ul class="flex nav_home">
                 <li><a class="teste" href="index.html ">Home</a></li>
                 <li><a class="teste" href="galeria.html ">Galeria</a></li>
                 <li><a class="teste" href=" eventos.html ">Eventos</a></li>
@@ -88,90 +90,9 @@
                     <button class="home_button"><i class="fas fa-search"></i></button>
                 </div>
             </div>
-            <div class="home_categoria_banner">
-                <div class="home_cat">
-                    <i class="fas fa-utensils"></i>
-                    <p>Culinária</p>
-                </div>
-                <div class="home_cat">
-                    <i class="fas fa-futbol"></i>
-                    <p>Tecnologia</p>
-                </div>
-                <div class="home_cat">
-                    <i class="fas fa-utensils"></i>
-                    <p>Esporte</p>
-                </div>
-                <div class="home_cat web_cat">
-                    <i class="fas fa-theater-masks"></i>
-                    <p>Arte</p>
-                </div>
-                <div class="home_cat web_cat">
-                    <i class="fas fa-briefcase"></i>
-                    <p>Congresso</p>
-                </div>
-                <div class="home_cat web_cat">
-                    <i class="fas fa-gamepad"></i>
-                    <p>Games</p>
-                </div>
-            </div>
+
         </section>
-        <section id="home_carrousel">
-            <h2>Proximos eventos</h2>
-            <div class="flex home_car">
-                <div class="home_card_container">
 
-                    <img class="home_avatar" src="imagens/img_avatar.png" alt="Avatar">
-                    <div class="home_card">
-                        <div class="home_container_card">
-                            <div class="home_texto_card">
-                                <h4><b>Nome do evento</b></h4>
-                                <p><i class="far fa-clock"></i> 10:00</p>
-                                <p><i class="far fa-calendar-alt"></i> 21/00/0000</p>
-                            </div>
-                            <div class="home_card_botao">
-                                <button class="home_localizacao">localização</button>
-                                <button class="home_comparecer">comparecer</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="home_card_container home_none margin">
-                    <img class="avatar" src="imagens/img_avatar.png" alt="Avatar">
-                    <div class="home_card">
-                        <div class="home_container_card">
-                            <div class="home_texto_card">
-                                <h4><b>Nome do evento</b></h4>
-                                <p><i class="far fa-clock"></i> 10:00</p>
-                                <p><i class="far fa-calendar-alt"></i> 21/00/0000</p>
-                            </div>
-                            <div class="home_card_botao">
-                                <button class="home_localizacao">localização</button>
-                                <button class="home_comparecer">comparecer</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="home_card_container home_none home_none_tablet ">
-                    <img class="avatar" src="imagens/img_avatar.png" alt="Avatar">
-                    <div class="home_card">
-                        <div class="home_container_card">
-                            <div class="home_texto_card">
-                                <h4><b>Nome do evento</b></h4>
-                                <p><i class="far fa-clock"></i> 10:00</p>
-                                <p><i class="far fa-calendar-alt"></i> 21/00/0000</p>
-                            </div>
-                            <div class="home_card_botao">
-                                <button class="home_localizacao">localização</button>
-                                <button class="home_comparecer">comparecer</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <section id="home_galeria" class="home_none home_none_tablet">
             <h2>Fotos de eventos</h2>
             <ul>
@@ -202,6 +123,28 @@
 
             </ul>
         </section>
+        <h2>Próximos eventos</h2>
+        <div class="carrosel_home">
+            <button id="botao_atras"><i class="fas fa-angle-left"></i></button>
+            <div class="carrosel_imagens">
+                <div class="card-imagem">
+                    <img src="imagens/iconeAdmin/paisagem_carrosel.jpg" class="imagem_carrosel" id="i1" alt="">
+                    <div class="card">
+                    </div>
+                </div>
+                <div class="card-imagem">
+                    <img src="imagens/iconeAdmin/maxresdefault.jpg" class="imagem_carrosel none" id="i2" alt="">
+                    <div class="card">
+                    </div>
+                </div>
+                <div class="card-imagem">
+                    <img src="imagens/iconeAdmin/paisagemjpg.jpg" class="imagem_carrosel none" id="i3" alt="">
+                    <div class="card">
+                    </div>
+                </div>
+            </div>
+            <button id="botao_frente"><i class="fas fa-chevron-right"></i></button>
+        </div>
         <section id="home_calendar">
 
             <h2>Calendario de eventos</h2>
@@ -271,7 +214,6 @@
         </section>
     </main>
     <footer>
-
         <div class="rodapecima">
             <div class="limite">
                 <p>redes sociais</p>
@@ -298,6 +240,8 @@
 
         </div>
 
+        <script src="script.jquery/jquery.js"></script>
+        <script src="script.jquery/script_jquery.js"></script>
     </footer>
 </body>
 
