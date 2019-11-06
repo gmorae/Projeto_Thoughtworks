@@ -291,6 +291,18 @@ li{
     display: flex;
 }
 
+.botao1{
+    border: none;
+}
+
+.botao2{
+    border: none;
+}
+
+.botao3{
+    border: none;
+}
+
 @media screen and (max-width: 769px) {
     .barra {
         width: 35%;

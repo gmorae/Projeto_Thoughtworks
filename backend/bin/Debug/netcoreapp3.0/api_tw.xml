@@ -4,5 +4,237 @@
         <name>api_tw</name>
     </assembly>
     <members>
+        <member name="M:api_tw.Controllers.CategoriaController.Get">
+            <summary>
+            O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+            É um metodo que retorna as categoria do banco.
+            </summary>
+            <returns>
+            Retorna as categoria do banco.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.CategoriaController.Get(System.String)">
+            <summary>
+            É um metodo que retorna as categoria do banco pela categoria informada pelo usuario.
+            </summary>
+            <param name="categoria"></param>
+            <returns>
+            Retorna a categoria escolhida.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.CategoriaController.Get(System.Int32)">
+            <summary>
+            É um metodo que retorna a categoria do banco pelo Id especifico.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna categoria pelo Id especificado.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.CategoriaController.Post(api_tw.Models.CategoriaModel)">
+            <summary>
+            O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+            É um metodo que cria uma categoria.
+            </summary>
+            <param name="categoria"></param>
+            <returns>
+            Retorna a categoria criada.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.CategoriaController.Put(System.Int32,api_tw.Models.CategoriaModel)">
+            <summary>
+            O método PUT substitui as alterações antigas pela novas carga dos dados.
+            É um metodo que atualiza o banco das categorias.
+            </summary>
+            <param name="id"></param>
+            <param name="categoria"></param>
+            <returns>
+            Retorna o banco atualizado pelo id.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.CategoriaController.Delete(System.Int32)">
+            <summary>
+            O método DELETE remove um recurso específico do banco por id.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o banco sem a categoria removida especificada pelo id.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.TipoUsuarioController.Get">
+            <summary>
+            O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+            É um metodo que retorna os tipo de usuario do banco.
+            </summary>
+            <returns>
+            Retorna os tipos de usuarios ja criado no banco.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.TipoUsuarioController.Get(System.Int32)">
+            <summary>
+            É um metodo que retorna o tipo do usuario do banco pelo Id especifico.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o tipo do usuario pelo Id especificado.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.TipoUsuarioController.Post(api_tw.Models.TipoUsuarioModel)">
+            <summary>
+            O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+            É um metodo que cria um tipo de usuario.
+            </summary>
+            <param name="tipoUsuario"></param>
+            <returns>
+            Retorna o tipo do usuario criado.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.TipoUsuarioController.Put(System.Int32,api_tw.Models.TipoUsuarioModel)">
+            <summary>
+            metodo que atualiza o tipo de usuario pelo id especificado.
+            </summary>
+            <param name="id"></param>
+            <param name="tipoUsuario"></param>
+            <returns>
+            retorna o tipo do usuario atualizado
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.TipoUsuarioController.Delete(System.Int32)">
+            <summary>
+            O método DELETE remove um recurso específico do banco por id.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o banco sem o id especifico do tipo do usuario.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.UsuarioController.Get">
+            <summary>
+            O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+            </summary>
+            <returns>
+            uma lista com os usuarios
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.UsuarioController.GetAction(System.Int32)">
+            <summary>
+            Busca o Usuario pelo id especificado
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o usuario especificado pelo id.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.UsuarioController.Post(api_tw.Models.UsuarioModel)">
+            <summary>
+            O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+            É um metodo que cria um usuario.
+            </summary>
+            <param name="usuario"></param>
+            <returns>
+            Retorna o usuario criado.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.UsuarioController.Put(System.Int32,api_tw.Models.UsuarioModel)">
+            <summary>
+            O método PUT substitui as alterações antigas pela novas carga dos dados.
+            É um metodo que atualiza o banco dos usuarios.
+            </summary>
+            <param name="id"></param>
+            <param name="usuario"></param>
+            <returns> 
+            retorna o banco de usuarios atualizado.
+            </returns>
+        </member>
+        <member name="M:api_tw.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            O método DELETE remove um recurso específico do banco por id.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o banco sem o usuario removido pelo id especificado.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.Get">
+            <summary>
+            O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
+            É um metodo que retorna os eventos do banco.
+            </summary>
+            <returns>
+            Retorna os eventos ja criados do banco.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetAprovados">
+            <summary>
+            É um metodo que retorna as os eventos aprovados do banco.
+            </summary>
+            <returns>
+            Retorna todos eventos aprovados
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetAguardando">
+            <summary>
+            É um metodo que retorna as os eventos que estão aguardando aprovação ou rejeição.
+            </summary>
+            <returns>
+            Retorna todos eventos que estão aguandando uma resposta.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetReprovado">
+            <summary>
+            É um metodo que retorna as os eventos reprovados do banco.
+            </summary>
+            <returns>
+            Retorna todos eventos reprovados.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.Get(System.Int32)">
+            <summary>
+             É um metodo que retorna o evento pelo id especifico.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            retorna o evento pelo id especificado.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetEventos(System.String)">
+            <summary>
+            É um metodo que busca alguma informação nos evento.
+            </summary>
+            <param name="evento"></param>
+            <returns>
+            retorna a informação especificada do evento.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.Post(api_tw.Models.Eventos)">
+            <summary>
+            O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
+            É um metodo que cria um evento.
+            </summary>
+            <param name="eventos"></param>
+            <returns>
+            Retorna o evento criado.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.Put(System.Int32,api_tw.Models.Eventos)">
+            <summary>
+            O método PUT substitui as as alterações antigas pelas novas cargass de dados.
+            É um metodo que atualiza o banco dos eventos.
+            </summary>
+            <param name="id"></param>
+            <param name="eventos"></param>
+            <returns>
+            Retorna o banco atualizado pelo id.
+            </returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.Delete(System.Int32)">
+            <summary>
+            O método DELETE remove um recurso específico do banco por id.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Retorna o banco sem o id especifico do evento deletado.
+            </returns>
+        </member>
     </members>
 </doc>
