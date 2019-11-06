@@ -23,7 +23,7 @@ namespace api_tw.Controllers
         /// Retorna as categoria do banco.
         /// </returns>
         [EnableCors]
-        // [Authorize(Roles= "Administrador")]
+        [Authorize(Roles= "Administrador")]
         [HttpGet]        
         public async Task<ActionResult<List<CategoriaModel>>> Get()
         {
