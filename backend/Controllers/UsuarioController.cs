@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace api_tw.Controllers
@@ -12,14 +13,16 @@ namespace api_tw.Controllers
     {
 
         UsuarioRepository repositorio = new UsuarioRepository();
-        
+
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
         /// </summary>
         /// <returns>
         /// uma lista com os usuarios
         /// </returns>
+
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
 
         public async Task<ActionResult<List<UsuarioModel>>> Get()
         {

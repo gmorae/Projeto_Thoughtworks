@@ -3,15 +3,18 @@ using System.Threading.Tasks;
 using api_tw.Models;
 using backend.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace backend.Controllers {
-    [Route ("api/[controller]")]
+namespace backend.Controllers
+{
+    [Route("api/[controller]")]
     [ApiController]
-    [Produces ("application/json")]
-    public class EventosController : ControllerBase {
-        EventosRepository eventosRepository = new EventosRepository ();
+    [Produces("application/json")]
+    public class EventosController : ControllerBase
+    {
+        EventosRepository eventosRepository = new EventosRepository();
 
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
@@ -21,19 +24,26 @@ namespace backend.Controllers {
         /// Retorna os eventos ja criados do banco.
         /// </returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
 
-        public async Task<ActionResult<List<Eventos>>> Get () {
-            try {
-                List<Eventos> listaDeEventos = await eventosRepository.Get ();
-                if (listaDeEventos == null) {
-                    return NotFound ();
+        public async Task<ActionResult<List<Eventos>>> Get()
+        {
+            try
+            {
+                List<Eventos> listaDeEventos = await eventosRepository.Get();
+                if (listaDeEventos == null)
+                {
+                    return NotFound();
                 }
-                foreach (Eventos item in listaDeEventos) {
+                foreach (Eventos item in listaDeEventos)
+                {
                     item.IdCategoriaNavigation.Eventos = null;
                     item.IdResponsavelNavigation.EventosIdResponsavelNavigation = null;
                 }
                 return listaDeEventos;
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }
@@ -44,16 +54,23 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna todos eventos aprovados
         /// </returns>
-        [HttpGet ("aprovado")]
-        public async Task<ActionResult<List<Eventos>>> GetAprovados () {
-            try {
-                List<Eventos> listApro = await eventosRepository.GetAprovado ();
-                if (listApro == null) {
-                    return NotFound ();
+        [HttpGet("aprovado")]
+        [Authorize(Roles = "Administrador")]
+
+        public async Task<ActionResult<List<Eventos>>> GetAprovados()
+        {
+            try
+            {
+                List<Eventos> listApro = await eventosRepository.GetAprovado();
+                if (listApro == null)
+                {
+                    return NotFound();
                 }
                 return listApro;
 
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -65,17 +82,23 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna todos eventos que estão aguandando uma resposta.
         /// </returns>
-        [HttpGet ("aguardando")]
+        [HttpGet("aguardando")]
+        [Authorize(Roles = "Administrador")]
 
-        public async Task<ActionResult<List<Eventos>>> GetAguardando () {
-            try {
-                List<Eventos> listAguard = await eventosRepository.GetAguardando ();
-                if (listAguard == null) {
-                    return NotFound ();
+        public async Task<ActionResult<List<Eventos>>> GetAguardando()
+        {
+            try
+            {
+                List<Eventos> listAguard = await eventosRepository.GetAguardando();
+                if (listAguard == null)
+                {
+                    return NotFound();
                 }
                 return listAguard;
 
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -87,17 +110,23 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna todos eventos reprovados.
         /// </returns>
-        [HttpGet ("reprovado")]
+        [HttpGet("reprovado")]
+        [Authorize(Roles = "Administrador")]
 
-        public async Task<ActionResult<List<Eventos>>> GetReprovado () {
-            try {
-                List<Eventos> listRepro = await eventosRepository.GetReprovado ();
-                if (listRepro == null) {
-                    return NotFound ();
+        public async Task<ActionResult<List<Eventos>>> GetReprovado()
+        {
+            try
+            {
+                List<Eventos> listRepro = await eventosRepository.GetReprovado();
+                if (listRepro == null)
+                {
+                    return NotFound();
                 }
                 return listRepro;
 
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -110,18 +139,24 @@ namespace backend.Controllers {
         /// <returns>
         /// retorna o evento pelo id especificado.
         /// </returns>
-        [HttpGet ("{id}")]
-        public async Task<ActionResult<Eventos>> Get (int id) {
-            try {
-                Eventos listaDeEventos = await eventosRepository.Get (id);
+        [HttpGet("{id}")]
 
-                if (listaDeEventos == null) {
-                    return NotFound ();
+        public async Task<ActionResult<Eventos>> Get(int id)
+        {
+            try
+            {
+                Eventos listaDeEventos = await eventosRepository.Get(id);
+
+                if (listaDeEventos == null)
+                {
+                    return NotFound();
                 }
 
                 return listaDeEventos;
 
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }
@@ -133,13 +168,17 @@ namespace backend.Controllers {
         /// <returns>
         /// retorna a informação especificada do evento.
         /// </returns>
-        [HttpGet ("busca/{evento}")]
-        public async Task<ActionResult<List<Eventos>>> GetEventos (string evento) {
-            try {
-                List<Eventos> listEvent = await eventosRepository.GetEventos (evento);
+        [HttpGet("busca/{evento}")]
+        public async Task<ActionResult<List<Eventos>>> GetEventos(string evento)
+        {
+            try
+            {
+                List<Eventos> listEvent = await eventosRepository.GetEventos(evento);
 
                 return listEvent;
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }
@@ -153,10 +192,17 @@ namespace backend.Controllers {
         /// Retorna o evento criado.
         /// </returns>
         [HttpPost]
-        public async Task<ActionResult<Eventos>> Post (Eventos eventos) {
-            try {
-                return await eventosRepository.Post (eventos);
-            } catch (System.Exception) {
+        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
+
+        public async Task<ActionResult<Eventos>> Post(Eventos eventos)
+        {
+          
+            try
+            {
+                return await eventosRepository.Post(eventos);
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }
@@ -170,18 +216,28 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna o banco atualizado pelo id.
         /// </returns>
-        [HttpPut ("{id}")]
-        public async Task<ActionResult<Eventos>> Put (int id, Eventos eventos) {
-            if (id != eventos.IdEvento) {
-                return BadRequest ();
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
+
+        public async Task<ActionResult<Eventos>> Put(int id, Eventos eventos)
+        {
+            if (id != eventos.IdEvento)
+            {
+                return BadRequest();
             }
-            try {
-                return await eventosRepository.Put (eventos);
-            } catch (DbUpdateException) {
-                var eventosValida = eventosRepository.Get (id);
-                if (eventosValida == null) {
-                    return NotFound ();
-                } else {
+            try
+            {
+                return await eventosRepository.Put(eventos);
+            }
+            catch (DbUpdateException)
+            {
+                var eventosValida = eventosRepository.Get(id);
+                if (eventosValida == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
 
                     throw;
 
@@ -196,18 +252,24 @@ namespace backend.Controllers {
         /// <returns>
         /// Retorna o banco sem o id especifico do evento deletado.
         /// </returns>
-        [HttpDelete ("{id}")]
-    
-        public async Task<ActionResult<Eventos>> Delete (int id) {
-            try {
-                Eventos eventosRetornado = await eventosRepository.Get (id);
-                if (eventosRepository == null) {
-                    return NotFound ();
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
+
+        public async Task<ActionResult<Eventos>> Delete(int id)
+        {
+            try
+            {
+                Eventos eventosRetornado = await eventosRepository.Get(id);
+                if (eventosRepository == null)
+                {
+                    return NotFound();
                 }
-                await eventosRepository.Delete (eventosRetornado);
+                await eventosRepository.Delete(eventosRetornado);
 
                 return eventosRetornado;
-            } catch (System.Exception) {
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }

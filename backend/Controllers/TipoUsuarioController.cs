@@ -1,4 +1,4 @@
-using  System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositories;
@@ -6,13 +6,15 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
-namespace api_tw.Controllers {
-    [Route ("api/[controller]")]
+namespace api_tw.Controllers
+{
+    [Route("api/[controller]")]
     [ApiController]
-    [Produces ("application/json")]
+    [Produces("application/json")]
 
-    public class TipoUsuarioController : ControllerBase {
-        TipoUsuarioRepository repositorio = new TipoUsuarioRepository ();
+    public class TipoUsuarioController : ControllerBase
+    {
+        TipoUsuarioRepository repositorio = new TipoUsuarioRepository();
 
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
@@ -22,11 +24,17 @@ namespace api_tw.Controllers {
         /// Retorna os tipos de usuarios ja criado no banco.
         /// </returns>
         [HttpGet]
-        [Authorize(Roles="Administrador")]
-        public async Task<ActionResult<List<TipoUsuarioModel>>> Get () {
-            try {
-                return await repositorio.Get ();
-            } catch (System.Exception) {
+        [Authorize(Roles = "Administrador")]
+
+        [Authorize(Roles = "Administrador")]
+        public async Task<ActionResult<List<TipoUsuarioModel>>> Get()
+        {
+            try
+            {
+                return await repositorio.Get();
+            }
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -39,12 +47,18 @@ namespace api_tw.Controllers {
         /// <returns>
         /// Retorna o tipo do usuario pelo Id especificado.
         /// </returns>
-        [HttpGet ("{id}")]
-        public async Task<ActionResult<TipoUsuarioModel>> Get (int id) {
+        [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador")]
 
-            try {
-                return await repositorio.Get (id);
-            } catch (System.Exception) {
+        public async Task<ActionResult<TipoUsuarioModel>> Get(int id)
+        {
+
+            try
+            {
+                return await repositorio.Get(id);
+            }
+            catch (System.Exception)
+            {
 
                 throw;
             }
@@ -59,10 +73,16 @@ namespace api_tw.Controllers {
         /// Retorna o tipo do usuario criado.
         /// </returns>
         [HttpPost]
-        public async Task<ActionResult<TipoUsuarioModel>> Post (TipoUsuarioModel tipoUsuario) {
-            try {
-                return await repositorio.Post (tipoUsuario);
-            } catch (System.Exception) {
+        [Authorize(Roles = "Administrador")]
+
+        public async Task<ActionResult<TipoUsuarioModel>> Post(TipoUsuarioModel tipoUsuario)
+        {
+            try
+            {
+                return await repositorio.Post(tipoUsuario);
+            }
+            catch (System.Exception)
+            {
                 throw;
             }
         }
@@ -75,19 +95,29 @@ namespace api_tw.Controllers {
         /// <returns>
         /// retorna o tipo do usuario atualizado
         /// </returns>
-        [HttpPut ("{id}")]
-        public async Task<ActionResult<TipoUsuarioModel>> Put (int id, TipoUsuarioModel tipoUsuario) {
-            if (id != tipoUsuario.IdTipo) {
-                return NotFound ();
-            }
-            try {
-                return await repositorio.Put (tipoUsuario);
-            } catch (System.Exception) {
+        [HttpPut("{id}")]
+        [Authorize(Roles = "Administrador")]
 
-                var tipo = repositorio.Get (id);
-                if (tipo == null) {
-                    return NotFound ();
-                } else {
+        public async Task<ActionResult<TipoUsuarioModel>> Put(int id, TipoUsuarioModel tipoUsuario)
+        {
+            if (id != tipoUsuario.IdTipo)
+            {
+                return NotFound();
+            }
+            try
+            {
+                return await repositorio.Put(tipoUsuario);
+            }
+            catch (System.Exception)
+            {
+
+                var tipo = repositorio.Get(id);
+                if (tipo == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
                     throw;
                 }
 
@@ -101,13 +131,17 @@ namespace api_tw.Controllers {
         /// <returns>
         /// Retorna o banco sem o id especifico do tipo do usuario.
         /// </returns>
-        [HttpDelete ("{id}")]
-        public async Task<ActionResult<TipoUsuarioModel>> Delete (int id) {
-            var buscarId = await repositorio.Get (id);
-            if (buscarId == null) {
-                return NotFound ();
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrador")]
+
+        public async Task<ActionResult<TipoUsuarioModel>> Delete(int id)
+        {
+            var buscarId = await repositorio.Get(id);
+            if (buscarId == null)
+            {
+                return NotFound();
             }
-            await repositorio.Delete (buscarId);
+            await repositorio.Delete(buscarId);
             return buscarId;
         }
 
