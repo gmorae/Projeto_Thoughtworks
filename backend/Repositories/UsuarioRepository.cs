@@ -16,11 +16,6 @@ namespace api_tw.Repositories
             using (EasyTalkContext ctx = new EasyTalkContext())
             {
                 var usuarioProcurado = ctx.Usuario.Include(x => x.IdTipoNavigation).FirstOrDefault(x => x.Email == email && x.Senha == senha);
-
-                // if (usuarioProcurado == null)
-                // {
-                //     return null;
-                // }
                 return usuarioProcurado;
             }
         }
