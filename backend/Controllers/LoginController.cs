@@ -23,7 +23,15 @@ namespace EventShareBackend.Controllers
         private IConfiguration config;
         public LoginController(IConfiguration mconfig){
             config = mconfig;
-        }   
+        } 
+
+        /// <summary>
+        /// Esse metodo vai autenticar o login do usuario e senha gerando um token valido com autorização ao acesso da area especifica.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns>
+        /// Retorna o usuario já autenticado com a validação do login e senha.
+        /// </returns>  
         [EnableCors]
         [AllowAnonymous]
         [HttpPost]
