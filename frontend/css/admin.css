@@ -291,17 +291,12 @@ li{
     display: flex;
 }
 
-.botao1{
+button{
+    background: #eeeeee;
     border: none;
+    margin-top: 2em;
 }
 
-.botao2{
-    border: none;
-}
-
-.botao3{
-    border: none;
-}
 
 @media screen and (max-width: 769px) {
     .barra {
