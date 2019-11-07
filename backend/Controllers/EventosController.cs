@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
+using api_tw.Repositories;
 using backend.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -15,6 +17,8 @@ namespace backend.Controllers
     public class EventosController : ControllerBase
     {
         EventosRepository eventosRepository = new EventosRepository();
+
+        UpRepository up = new UpRepository();
 
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
@@ -194,12 +198,23 @@ namespace backend.Controllers
         [HttpPost]
         [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
 
-        public async Task<ActionResult<Eventos>> Post(Eventos eventos)
+        public async Task<ActionResult<Eventos>> Post([FromForm] Eventos eventos)
         {
           
             try
             {
-                return await eventosRepository.Post(eventos);
+                var arquivo = Request.Form.Files[0];
+                eventos.imagemEventos = up.Upload(arquivo, "images/eventos");
+                eventos.NomeEvento = Request.Form["NomeEvento"];
+                eventos.Descricao = Request.Form["Descricao"];
+                eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
+                eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
+                eventos.Ativo = int.Parse(Request.Form["Ativo"]);
+                eventos.Localizacao = Request.Form["Localizacao"];
+                eventos.IdCategoria = int.Parse(Request.Form["IdCategoria"]);
+                eventos.IdUsuario = int.Parse(Request.Form["IdUsuario"]);
+                eventos.IdEvento = int.Parse(Request.Form["IdEvento"]);
+                return await eventos.Post(eventos);
             }
             catch (System.Exception)
             {
