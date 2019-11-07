@@ -13,6 +13,7 @@ namespace api_tw.Controllers
     {
 
         UsuarioRepository repositorio = new UsuarioRepository();
+        UpRepository up = new UpRepository();
 
         /// <summary>
         /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
@@ -22,7 +23,7 @@ namespace api_tw.Controllers
         /// </returns>
 
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
+        // [Authorize(Roles = "Administrador")]
 
         public async Task<ActionResult<List<UsuarioModel>>> Get()
         {
@@ -74,17 +75,27 @@ namespace api_tw.Controllers
         /// </returns>
         [HttpPost]
 
-        public async Task<ActionResult<UsuarioModel>> Post(UsuarioModel usuario)
+        public async Task<ActionResult<UsuarioModel>> Post([FromForm] UsuarioModel usuario)
         {
+             
             try
             {
-                return await repositorio.Post(usuario);
+               
+                var arquivo = Request.Form.Files[0];
+                usuario.imagemUsuario = up.Upload(arquivo, "images");
+                usuario.NomeUsuario = Request.Form["nomeUsuario"];
+                usuario.Email = Request.Form["email"];
+                usuario.Senha = Request.Form["senha"];
+                usuario.TelefoneMovel = Request.Form["telefoneMovel"];
+                usuario.IdTipo = int.Parse(Request.Form["idTipo"]);
+                await repositorio.Post(usuario);
             }
             catch (System.Exception)
             {
 
                 throw;
             }
+            return usuario;
         }
 
         /// <summary>

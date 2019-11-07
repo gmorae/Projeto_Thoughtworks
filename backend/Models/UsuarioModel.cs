@@ -26,6 +26,11 @@ namespace api_tw.Models
         [Column("senha")]
         [StringLength(100)]
         public string Senha { get; set; }
+
+        [Column("imagemUsuario")]
+        [StringLength(100)]
+        public string imagemUsuario { get; set; }
+
         [Column("telefone_movel")]
         [StringLength(20)]
         public string TelefoneMovel { get; set; }
