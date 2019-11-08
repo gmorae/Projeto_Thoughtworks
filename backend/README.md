@@ -567,7 +567,7 @@ using Microsoft.IdentityModel.Tokens;
 
 <br>
 
-> Em Startup.cs , no método Configure, habilite o middleware para atender ao documento JSON gerado e à interface do usuário do Swagger:
+> Em Startup.cs , no método Configure:
 ```c#
     app.UseCors();
 ```
