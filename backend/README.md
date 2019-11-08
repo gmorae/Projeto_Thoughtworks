@@ -550,7 +550,29 @@ using Microsoft.IdentityModel.Tokens;
 > Pronto! Agora é só utilizar a anotação *[Authorize]* em baixo da anotação REST de cada método que desejar colocar autenticação! <br>
 > No Postman devemos gerar um token pela rota de login e nos demais endpoints devemos adicionar o token gerado na aba *Authorization*  escolhendo a opção ***Baerer Token***
 
+## Cors - Permissão de acesso
 
+> Registramos o gerador do Cors dentro de ConfigureServices:
+```c#
+          services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                builder =>
+                {
+                    builder.WithOrigins("*").WithHeaders("X-custom-header").WithMethods("Get, Post, Put, Delete");
+                });
+            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+```
+
+<br>
+
+> Em Startup.cs , no método Configure, habilite o middleware para atender ao documento JSON gerado e à interface do usuário do Swagger:
+```c#
+    app.UseCors();
+```
+
+<br>
 <br><br>
 
 # Reestruturando projeto para os padrões de mercado
