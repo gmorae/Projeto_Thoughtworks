@@ -4,7 +4,11 @@
     align-items: center !important;
 }
 
-i {
+.fa-edit,
+.fa-plus,
+.fa-calendar-alt,
+.fa-edit,
+.fa-unlock-alt {
     font-size: 60pt;
     color: #222;
     margin: 0.4em;
