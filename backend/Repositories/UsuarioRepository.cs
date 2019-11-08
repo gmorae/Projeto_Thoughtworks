@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,5 +49,32 @@ namespace api_tw.Repositories
             await context.SaveChangesAsync();
             return usuario;
         }
+
+        public async Task<UsuarioModel> VerificarEmail(string email)
+        {
+            var usuario = await context.Usuario.Where(us => us.Email == email).FirstOrDefaultAsync();
+            return usuario;
+        }
+
+        public async Task<UsuarioModel> RecuperarSenha(UsuarioModel usuario)
+        {
+            var usuarioAlterar = await context.Usuario.FirstOrDefaultAsync(us => us.Email == usuario.Email);
+            string guid = Guid.NewGuid().ToString().Replace("-", "");
+
+            Random random = new Random();
+            int tamanhoSenha = random.Next(3,9);
+
+            string senha = "";
+
+            for(int i = 0; i <= tamanhoSenha; i++)
+            {
+                senha += guid.Substring(random.Next(1, guid.Length), 1);
+            }
+
+            usuarioAlterar.Senha = senha;
+
+            return usuarioAlterar;            
+        }
+
     }
 }

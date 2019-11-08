@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using api_tw.Models;
 using api_tw.Repositories;
+using backend.Controllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +15,8 @@ namespace api_tw.Controllers
     {
 
         UsuarioRepository repositorio = new UsuarioRepository();
+
+        EmailController _email = new EmailController();
         UpRepository up = new UpRepository();
 
         /// <summary>
@@ -151,6 +155,39 @@ namespace api_tw.Controllers
             }
             await repositorio.Delete(buscaId);
             return buscaId;
+        }
+
+        /// <summary>
+        /// Metodo para enviar email
+        /// </summary>
+        /// <param name="usuario">
+        ///     Pega o email do usuario
+        /// </param>
+        /// <returns>
+        ///     Retorna uma mensagem e a senha do usuario
+        /// </returns>
+
+        [AllowAnonymous]
+        [HttpPut("recuperarsenha")]
+        public async Task<ActionResult<UsuarioModel>> RecuperarSenha(UsuarioModel usuario)
+        {
+            var user = await repositorio.VerificarEmail(usuario.Email);
+
+            try
+            {
+               var userRecuperado = await repositorio.RecuperarSenha(user);
+               await repositorio.Put(userRecuperado);
+
+               string tituloEmail = "Recuperação de senha";
+               string corpoEmail = $"Sua nova senha é: {userRecuperado.Senha}, altere urgente";
+               _email.Email(user.Email, corpoEmail, tituloEmail);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+
+            return Ok("Verifique seu e-mail, uma nova senha foi enviada");
         }
     }
 }
