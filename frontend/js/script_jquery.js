@@ -6,7 +6,7 @@ var tab = [
 
 var i = 0;
 
-$('button').on('click', function() {
+$('#botao_atras').on('click', function() {
     i++;
     $('.imagem_carrosel').attr("src", tab[i % 3]);
     setInterval(function() {
