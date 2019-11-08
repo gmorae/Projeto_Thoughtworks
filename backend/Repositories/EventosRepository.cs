@@ -60,13 +60,13 @@ namespace backend.Repositories
             }
         }
 
-        public async Task<Eventos> Post(Eventos evento)
+        public async Task<Eventos> Post(Eventos eventos)
         {
             using (EasyTalkContext context = new EasyTalkContext())
             {
-                await context.Eventos.AddAsync(evento);
+                await context.Eventos.AddAsync(eventos);
                 await context.SaveChangesAsync();
-                return evento;
+                return eventos;
             }
         }
 

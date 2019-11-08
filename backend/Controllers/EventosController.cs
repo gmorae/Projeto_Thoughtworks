@@ -204,17 +204,18 @@ namespace backend.Controllers
             try
             {
                 var arquivo = Request.Form.Files[0];
-                eventos.imagemEventos = up.Upload(arquivo, "images/eventos");
+                eventos.imagemEvento = up.Upload(arquivo, "images/eventos");
                 eventos.NomeEvento = Request.Form["NomeEvento"];
                 eventos.Descricao = Request.Form["Descricao"];
                 eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
                 eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
                 eventos.Ativo = int.Parse(Request.Form["Ativo"]);
                 eventos.Localizacao = Request.Form["Localizacao"];
+                eventos.coffe = Request.Form["coffe"];
                 eventos.IdCategoria = int.Parse(Request.Form["IdCategoria"]);
                 eventos.IdUsuario = int.Parse(Request.Form["IdUsuario"]);
                 eventos.IdEvento = int.Parse(Request.Form["IdEvento"]);
-                return await eventos.Post(eventos);
+                return await eventosRepository.Post(eventos);
             }
             catch (System.Exception)
             {

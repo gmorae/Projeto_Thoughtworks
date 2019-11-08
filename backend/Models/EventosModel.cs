@@ -22,6 +22,15 @@ namespace api_tw.Models
         public DateTime? DataCriacao { get; set; }
         [Column("ativo")]
         public int? Ativo { get; set; }
+
+        [Column("imagemEvento")]
+        [StringLength(100)]
+        public string imagemEvento { get; set; }
+
+        [Column("coffe")]
+        [StringLength(5)]
+        public string coffe { get; set; }
+
         [Column("localizacao")]
         [StringLength(100)]
         public string Localizacao { get; set; }
