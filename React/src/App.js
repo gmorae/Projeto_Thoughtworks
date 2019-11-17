@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import CabecalhoPadrao from './components/cabecalhos/cabecalhoPadrao/CabecalhoPadrao'
+import CabecalhoAdmin from './components/cabecalhos/cabecalhoAdmin/CabecalhoAdmin';
 function App() {
   return (
     <div>
-      <CabecalhoPadrao />
+      <CabecalhoAdmin />
     </div>
   );
 }
