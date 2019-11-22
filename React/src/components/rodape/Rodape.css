@@ -1,0 +1,20 @@
+.footer-copyright{
+    background: #161C27;
+}
+
+footer{
+    background: #1C2331;
+    color: white;
+}
+
+.btn-white{
+    border: 2px solid #fff;
+    border-radius: 50px;
+    color: #fff;
+}
+
+.btn-white a ::placeholder{
+    border: 2px solid #fff;
+    border-radius: 50px;
+    color: #fff;
+}

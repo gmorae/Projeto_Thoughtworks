@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import CabecalhoAdmin from './components/cabecalhos/cabecalhoAdmin/CabecalhoAdmin';
+import Rodape from './components/rodape/Rodape';
+
 function App() {
   return (
     <div>
-      <CabecalhoAdmin />
+      <Rodape />
     </div>
   );
 }
