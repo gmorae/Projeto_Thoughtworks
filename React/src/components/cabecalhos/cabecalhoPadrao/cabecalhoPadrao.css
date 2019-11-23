@@ -1,5 +1,5 @@
 .bg-redeasy{
-    background: #6351ce !important;
+    background: #000 !important;
 }
 
 .navbar{
@@ -25,7 +25,7 @@
     height: 3px;
     bottom: 0;
     left: 0;
-    background-color: #1C2331;
+    background-color: #505add;
     visibility: hidden;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
@@ -33,11 +33,21 @@
     transition: all 0.3s ease-in-out 0s;
 }
 
-.nav-item a :hover{
-    color: #1C2331;
+.nav-item :hover{
+    color: #505add !important;
 }
 .nav-link:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
+}
+
+.navbarr{
+    width: 80% !important;
+    background: black;
+    margin: auto;
+}
+
+.home{
+    color: #505add !important;
 }
