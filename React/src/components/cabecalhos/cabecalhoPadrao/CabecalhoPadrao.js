@@ -9,19 +9,19 @@ function CabecalhoPadrao() {
                 aria-expanded="false" aria-label="Toggle navigation"></button>
             <div className="collapse navbar-collapse" id="collapsibleNavId">
                 <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link ml-4 " href="#">Home <span className="sr-only">(current)</span></a>
                     </li>
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link ml-4" href="#">Galeria</a>
                     </li>
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link ml-4" href="#">Eventos</a>
                     </li>
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link ml-4" href="#">Cadastre-se</a>
                     </li>
-                    <li className="nav-item active">
+                    <li className="nav-item">
                         <a className="nav-link ml-4" href="#">Login</a>
                     </li>
                 </ul>
