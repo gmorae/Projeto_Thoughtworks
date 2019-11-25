@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './cabecalhoPadrao.css'
 import '../styleCabecalho.css'
 function CabecalhoPadrao() {
@@ -11,7 +12,7 @@ function CabecalhoPadrao() {
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item ">
-                            <a className="nav-link home ml-4 " href="#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link home ml-4 " to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link ml-4" href="#Sobre">Sobre</a>
@@ -20,7 +21,7 @@ function CabecalhoPadrao() {
                             <a className="nav-link ml-4" href="#Eventos">Eventos</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link ml-4" href="#">Login / Casdastro</a>
+                            <Link className="nav-link ml-4" to="/Login">Login / Casdastro</Link>
                         </li>
                     </ul>
                 </div>
