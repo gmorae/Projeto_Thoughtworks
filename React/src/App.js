@@ -1,16 +1,9 @@
 import React from 'react';
-import './App.css';
-import Navbar from './components/cabecalhos/cabecalhoPadrao/CabecalhoPadrao'
-import Banner from './components/Banner/Banner'
-import Eventos from './components/Eventos/Eventos'
-import Rodape from './components/rodape/Rodape'
+import Home from './Pages/Home/Home'
 function App() {
   return (
     <div>
-      <Navbar />
-      <Banner />
-      <Eventos />
-      <Rodape />
+      <Home />
     </div>
   );
 }
