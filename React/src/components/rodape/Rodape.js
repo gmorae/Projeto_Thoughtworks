@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './Rodape.css'
 
 function Rodape() {
@@ -14,18 +15,18 @@ function Rodape() {
                         </div>
 
                         <div className="col-md-6 col-lg-7 text-center text-md-right">
-                            <a className="tw-ic">
+                            <Link className="tw-ic">
                                 <i className="fab fa-twitter white-text mr-4"> </i>
-                            </a>
-                            <a className="gplus-ic">
+                            </Link>
+                            <Link className="gplus-ic">
                                 <i className="fab fa-google-plus-g white-text mr-4"> </i>
-                            </a>
-                            <a className="li-ic">
+                            </Link>
+                            <Link className="li-ic">
                                 <i className="fab fa-linkedin-in white-text mr-4"> </i>
-                            </a>
-                            <a className="ins-ic">
+                            </Link>
+                            <Link className="ins-ic">
                                 <i className="fab fa-instagram white-text"> </i>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -63,7 +64,7 @@ function Rodape() {
                 </div>
             </div>
                 <div className="footer-copyright text-center py-3">© 2018 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+                    <Link href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</Link>
                 </div>
         </footer>
     )

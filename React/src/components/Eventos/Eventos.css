@@ -1,6 +1,5 @@
 .fundoEvento{
     background-image: linear-gradient(150deg ,rgba(80, 85, 201, 0.95), rgba(200, 62, 152, 0.95)), url('../../img/fundo.jpg');
-    height: 50vh;
     background-size: 100%;
     background-size: cover;
     background-attachment: fixed;
@@ -10,4 +9,14 @@
 
 .btn-defaultt{
     background: #DF42B1;
+}
+
+.radius{
+    border-radius: 50px;
+}
+
+hr{
+    border: 2px solid #DF42B1;
+    width: 30%;
+    margin: auto;
 }
