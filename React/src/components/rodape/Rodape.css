@@ -20,9 +20,13 @@ footer{
 }
 
 .rod{
-    background: #6351ce;
+    background: #505add;
 }
 
 .exemplo{
     width: 60px;
+}
+
+.deep-purplee{
+    background: #505add;
 }

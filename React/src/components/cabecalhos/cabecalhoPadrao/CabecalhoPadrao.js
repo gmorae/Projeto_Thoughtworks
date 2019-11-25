@@ -15,12 +15,6 @@ function CabecalhoPadrao() {
                             <Link className="nav-link home ml-4 " to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link ml-4" href="#Sobre">Sobre</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link ml-4" href="#Eventos">Eventos</a>
-                        </li>
-                        <li className="nav-item">
                             <Link className="nav-link ml-4" to="/Login">Login / Casdastro</Link>
                         </li>
                     </ul>

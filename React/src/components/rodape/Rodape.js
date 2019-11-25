@@ -11,19 +11,18 @@ function Rodape() {
                     <div className="row py-4 d-flex align-items-center">
 
                         <div className="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                            <h6 className="mb-0">Get connected with us on social networks!</h6>
+                            <h6 className="mb-0">Conecte-se conosco nas redes sociais!</h6>
                         </div>
 
                         <div className="col-md-6 col-lg-7 text-center text-md-right">
                             <Link className="tw-ic">
                                 <i className="fab fa-twitter white-text mr-4"> </i>
                             </Link>
-                            <Link className="gplus-ic">
-                                <i className="fab fa-google-plus-g white-text mr-4"> </i>
-                            </Link>
+
                             <Link className="li-ic">
-                                <i className="fab fa-linkedin-in white-text mr-4"> </i>
+                                <i className="fab fa-facebook white-text mr-4"> </i>
                             </Link>
+
                             <Link className="ins-ic">
                                 <i className="fab fa-instagram white-text"> </i>
                             </Link>
@@ -31,41 +30,41 @@ function Rodape() {
                     </div>
                 </div>
             </div>
-            <div className="container text-center text-md-left mt-5">
+            <div className="container text-md-left mt-5">
                 <div className="row mt-3">
-                    <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 className="text-uppercase font-weight-bold">Company name</h6>
-                        <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
+                    <div className="col-4 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 className="text-uppercase font-weight-bold">Easy Talk</h6>
+                        <hr className="deep-purplee accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
                         <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
                             consectetur
                             adipisicing elit.</p>
                     </div>
-                    <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 className="text-uppercase font-weight-bold">Company name</h6>
-                        <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipisicing elit.</p>
+                    <div className="col-4 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 className="text-uppercase font-weight-bold">Links</h6>
+                        <hr className="deep-purplee accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
+                        <p>
+                            <a href="#!">Home</a>
+                        </p>
+                        <p>
+                            <a href="#!">Cadastra=se</a>
+                        </p>
+                        <p>
+                            <a href="#!">Login</a>
+                        </p>
                     </div>
-                    <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 className="text-uppercase font-weight-bold">Company name</h6>
-                        <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipisicing elit.</p>
-                    </div>
-                    <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <h6 className="text-uppercase font-weight-bold">Company name</h6>
-                        <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipisicing elit.</p>
+                    <div className="col-4 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h6 className="text-uppercase font-weight-bold">Contato</h6>
+                        <hr className="deep-purplee accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
+                        
+                        <p>
+                            <i class="fas fa-envelope mr-3"></i> atendimento@easyTalk.com</p>
+                        <p>
+                            <i class="fas fa-phone mr-3"></i> 11 99999-9999</p>
+                        
                     </div>
                 </div>
             </div>
-                <div className="footer-copyright text-center py-3">© 2018 Copyright:
-                    <Link href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</Link>
-                </div>
+            <div className="footer-copyright text-center py-3">© { new Date().getFullYear()} Copyright | Todos os diretos reservados</div>
         </footer>
     )
 }

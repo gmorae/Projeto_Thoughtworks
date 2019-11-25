@@ -1,0 +1,20 @@
+.fundoBlue{
+    background: #151853;
+}
+
+.rosa-font{
+    color: #DF42B1;
+}
+
+.hr-sobre{
+    border: 1px solid #4B4D7B;
+    width: 30%;
+}
+
+.btn-defaulttt{
+    background: linear-gradient(120deg, #DF42B1, #5C58D9);
+}
+
+.space{
+    letter-spacing: 0.2em;
+}
