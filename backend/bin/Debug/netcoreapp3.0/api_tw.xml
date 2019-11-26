@@ -155,6 +155,17 @@
             Retorna o banco sem o usuario removido pelo id especificado.
             </returns>
         </member>
+        <member name="M:api_tw.Controllers.UsuarioController.RecuperarSenha(api_tw.Models.UsuarioModel)">
+            <summary>
+            Metodo para enviar email
+            </summary>
+            <param name="usuario">
+                Pega o email do usuario
+            </param>
+            <returns>
+                Retorna uma mensagem e a senha do usuario
+            </returns>
+        </member>
         <member name="M:backend.Controllers.EventosController.Get">
             <summary>
             O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.

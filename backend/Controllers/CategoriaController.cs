@@ -70,7 +70,7 @@ namespace api_tw.Controllers
         /// <returns>
         /// Retorna categoria pelo Id especificado.
         /// </returns>
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<CategoriaModel>> Get(int id)
         {
             try
