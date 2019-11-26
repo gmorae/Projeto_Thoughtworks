@@ -8,7 +8,7 @@ export class Sobre extends Component {
     render() {
         return (
             <div className="fundoBlue">
-                <div className="container ">
+                <div className="container mt-5">
                     <section className="white-text">
                         <div className="row pr-lg-5">
                             <div className="col-md-7 mb-4 mt-5">

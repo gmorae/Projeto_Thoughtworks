@@ -1,5 +1,5 @@
 .bg-redeasy{
-    background: #000 !important;
+    background: #151853 !important;
 }
 
 .navbar{
@@ -44,10 +44,6 @@
 
 .navbarr{
     width: 80% !important;
-    background: black;
+    background: #151853 !important;
     margin: auto;
-}
-
-.home{
-    color: #505add !important;
 }
