@@ -29,9 +29,37 @@ class Login extends Component {
                                     </div>
 
                                     <div class="d-flex justify-content-around mt-3 mb-3">
-                                        <a href="">Esqueceu a senha ?</a>
+                                       
+                                    <a className="" data-toggle="modal" data-target="#esqueceuSenha">Esqueceu a senha? </a>
+
                                     </div>
+
+                                    <div class="modal fade" id="esqueceuSenha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1>Encontre sua conta</h1>
+                                                    
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                
+                                                   <input placeholder="Digite seu E-Mail." class="form-control "></input>
+                                                   <button class="btn info-color text-white btn-block my-4 ">Enviar
+                                                    </button>
+                    </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <button class="btn btn-blue-login btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Login</button>
+                                    <button class="btn btn-blue-login btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Cadastre-se</button>
 
                                 </form>
                             </div>
