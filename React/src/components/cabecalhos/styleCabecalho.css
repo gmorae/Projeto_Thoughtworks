@@ -24,3 +24,15 @@ h4,
 h5 {
     font-family: var(--texto);
 }
+
+.btn-nosso{
+    background: #151853;
+    color: #fff;
+    transition: 1s;
+
+}
+
+.btn-nosso:hover{
+    background: #fff;
+    color: #151853;
+}

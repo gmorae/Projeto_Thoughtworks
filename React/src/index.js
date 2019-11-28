@@ -7,13 +7,14 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 //import NotFound from './pages/NotFound';
 import Login from './Pages/Login/Login'
-
+import Cadastro from './Pages/Cadastro/Cadastro'
 const Rotas = (
     <Router>
         <div>
             <Switch>
                 {/** Rotas comuns */}
                 <Route path="/" exact component={App} />
+                <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
 
                 {/** Rotas dos usuarios */}

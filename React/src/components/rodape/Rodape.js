@@ -46,7 +46,7 @@ function Rodape() {
                             <a href="#!">Home</a>
                         </p>
                         <p>
-                            <a href="#!">Cadastra=se</a>
+                            <a href="#!">Cadastra-se</a>
                         </p>
                         <p>
                             <a href="#!">Login</a>
