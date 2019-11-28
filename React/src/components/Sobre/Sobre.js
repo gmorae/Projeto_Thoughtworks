@@ -20,12 +20,9 @@ export class Sobre extends Component {
                             </div>
                             <div className="col-md-5 d-flex align-items-center mb-3">
                                 <div>
-                                    <h5 className="font-weight-bold rosa-font">Sobre o nós</h5>
-                                    <hr className="hr-sobre mb-4" />
                                     <h1 className="h1-responsive font-weight-bold text-uppercase space">Bem-vindo a easy talk</h1>
                                     <p>Lorem ipsum dolor sit amet consectetur adip elit. Maiores deleniti explicabo voluptatem quisquam nulla asperiores aspernatur aperiam voluptate et consectetur minima delectus, fugiat eum soluta blanditiis adipisci, velit dolore magnam.</p>
                                     <Link className="btn btn-defaulttt text-white radius" data-toggle="modal" data-target="#ModalSobre">Saiba Mais</Link>
-
                                 </div>
                             </div>
                         </div>
