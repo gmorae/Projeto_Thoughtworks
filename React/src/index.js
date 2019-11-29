@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
 import User from './Pages/User/Home/User'
+import Admin from './Pages/Admin/Home/Admin'
 const Rotas = (
     <Router>
         <div>
@@ -17,13 +18,14 @@ const Rotas = (
                 <Route path="/" exact component={App} />
                 <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
-                <Route path="/User" component={User} />
 
 
                 {/** Rotas dos usuarios */}
+                <Route path="/User" component={User} />
 
 
                 {/** Rotas do administrador */}
+                <Route path="/Admin" component={Admin}/>
 
 
                 {/*<Route component={NotFound} />*/}
