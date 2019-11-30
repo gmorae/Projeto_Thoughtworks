@@ -7,7 +7,7 @@ class CabecalhoAdmin extends Component {
 
     render() {
         return (
-            <nav class="navbar navbar-dark fixed-top indigo darken-2">
+            <nav class="navbar navbar-dark indigo darken-2">
                 <div className="container-fluid">
                     <button class="navbar-toggler third-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent22"
                         aria-controls="navbarSupportedContent22" aria-expanded="false" aria-label="Toggle navigation">

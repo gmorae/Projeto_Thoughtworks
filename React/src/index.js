@@ -10,6 +10,7 @@ import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
 import User from './Pages/User/Home/User'
 import Admin from './Pages/Admin/Home/Admin'
+import DadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais'
 
 const Rotas = (
     <Router>
@@ -23,10 +24,12 @@ const Rotas = (
 
                 {/** Rotas dos usuarios */}
                 <Route path="/User" component={User} />
+                
 
 
                 {/** Rotas do administrador */}
                 <Route path="/Admin" component={Admin}/>
+                <Route path="/EditarDadosPessoais" component={DadosPessoais}/>
 
 
                 {/*<Route component={NotFound} />*/}
