@@ -1,21 +1,22 @@
     .card_flex {
-        display: flex;
+        /* display: flex; */
         justify-content: center;
         flex-wrap: wrap;
         margin-top: 10em;
     }
     
-    .card {
+    .card_user {
         background: var(--white);
         width: 30vw !important;
-        height: 64vh !important;
+        height: 50vh !important;
         margin: 1.5em;
         box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
         font-size: 1.5em;
         text-align: center;
-        display: flex;
         align-items: center;
-        justify-items: center;
+        justify-content: center;
     }
     
     .card_flex a {

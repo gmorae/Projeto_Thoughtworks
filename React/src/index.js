@@ -10,6 +10,7 @@ import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
 import User from './Pages/User/Home/User'
 import Admin from './Pages/Admin/Home/Admin'
+
 const Rotas = (
     <Router>
         <div>

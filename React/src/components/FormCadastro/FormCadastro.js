@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import '../../components/FormCadastro/FormCadastro.css'
 
 export class FormCadastro extends Component {
     render() {
         return (
             <div className="container ">
-                <div className="text-center mt-9 mb-5">
-                    <h1>Cadastre-se para conseguir criar um evento</h1>
+                <div className="texto_cadastro">
+                    <h1>Cadastre-se para criar um evento</h1>
                 </div>
                 <form className="mx-auto col-md-9">
                     <div className="md-form">
@@ -31,7 +32,7 @@ export class FormCadastro extends Component {
                         <input type="password" id="confirmPassword" className="form-control validate" />
                         <label for="confirmPassword" data-error="Campo inválido" data-success="Sucesso">Confirmação de senha</label>
                     </div>
-                    <button type="button" className="btn btn-nosso">Cadastrar</button>
+                    <button type="button" className="btn-cadastro btn-cadastro1">CADASTRAR</button>
                 </form>
             </div>
         )
