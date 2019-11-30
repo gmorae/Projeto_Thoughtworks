@@ -1,48 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './Eventos.css'
-import Modal from '../DetalheEventos/DetalheEventos'
 import { Link } from "react-router-dom";
-function Eventos() {
-    return (
-        <div className="fundoEvento" id="Eventos">
-            <div className="container mt-5">
-                <p className="h1-responsive rosa text-center text-white text-uppercase">nosso horário</p>
-                <h2 className="h1-responsive text-center display-4 text-white text-uppercase mb-5">Agenda</h2>
-                <div className="card-deck">
-                    <div className="card hoverable mb-4">
-                        <div className="card-body">
-                            <h4 className="card-title">Aqui vai o titulo</h4>
-                            <p className="card-text">Aqui vai quem é o responsavel</p>
-                            <p className="card-text">Aqui vai o horario e a data</p>
-                            <Link className="btn btn-defaultt text-white" data-toggle="modal" data-target="#evento">Detalhes</Link>
-                        </div>
-                    </div>
-
-                    <div className="card hoverable mb-4">
-                        <div className="card-body">
-                            <h4 className="card-title">Aqui vai o titulo</h4>
-                            <p className="card-text">Aqui vai quem é o responsavel</p>
-                            <p className="card-text">Aqui vai o horario e a data</p>
-                            <Link className="btn btn-defaultt text-white" data-toggle="modal" data-target="#evento">Detalhes</Link>
-                        </div>
-                    </div>
-
-                    <div className="card hoverable mb-4">
-                        <div className="card-body">
-                            <h4 className="card-title">Aqui vai o titulo</h4>
-                            <p className="card-text">Aqui vai quem é o responsavel</p>
-                            <p className="card-text">Aqui vai o horario e a data</p>
-                            <Link className="btn btn-defaultt text-white" data-toggle="modal" data-target="#evento">Detalhes</Link>
-                        </div>
-                    </div>
+class Eventos extends Component {
+    render() {
+        return (
+            <div className="card hoverable mb-4">
+                <div className="card-body">
+                    <h4 className="card-title">{this.props.nome}</h4>
+                    <p className="card-text">{this.props.responsavel}</p>
+                    <p className="card-text">{this.props.data}</p>
+                    <Link className="btn btn-defaultt text-white" data-toggle="modal" data-target="#evento">Detalhes</Link>
                 </div>
             </div>
-            <div className="mx-auto mt-3 mb-5">
-                <Link className="btn btn-defaultt text-white radius">Mais eventos</Link>
-            </div>
-            <Modal />
-        </div>
-
-    )
+        )
+    }
 }
 export default Eventos
