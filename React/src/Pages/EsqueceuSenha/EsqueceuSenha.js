@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import "../Login/Login.css";
 export class EsqueceuSenha extends Component {
     render() {
@@ -18,8 +19,8 @@ export class EsqueceuSenha extends Component {
                             </div>
                         </div>
                         <div class="modal-footer flex-center">
-                            <a class="btn btn-bluee-login ">Enviar email</a>
-                            <a class="btn btn btn-blue-login color" data-dismiss="modal">Cancelar</a>
+                            <Link class="btn btn-bluee-login ">Enviar email</Link>
+                            <Link class="btn btn btn-blue-login color" data-dismiss="modal">Cancelar</Link>
 
                         </div>
                     </div>

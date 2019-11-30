@@ -6,7 +6,7 @@ function CabecalhoPadrao() {
     return (
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-redeasy">
             <div className="container">
-                <a className="navbar-brand" href="#">Navbar</a>
+                <Link className="navbar-brand" href="#">Navbar</Link>
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
                     aria-expanded="false" aria-label="Toggle navigation"></button>
                 <div className="collapse navbar-collapse" id="collapsibleNavId">

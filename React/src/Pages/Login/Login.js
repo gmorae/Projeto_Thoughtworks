@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import Navbar from '../../components/cabecalhos/cabecalhoPadrao/CabecalhoPadrao'
 import './Login.css'
 // import img from '../../img/login.svg'
@@ -31,7 +32,7 @@ class Login extends Component {
 
                                     <div class="d-flex justify-content-around mt-3 mb-3">
 
-                                        <a className="textEsqueceuSenha" data-toggle="modal" data-target="#modalEsqueceuSenha">Esqueceu a senha? </a>
+                                        <Link className="textEsqueceuSenha" data-toggle="modal" data-target="#modalEsqueceuSenha">Esqueceu a senha? </Link>
 
                                     </div>
                                     <button class="btn btn-blue-login btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Login</button>
