@@ -6,7 +6,13 @@ function Cadastro() {
     return (
         <div>
             <Navbar />
-            <FormCadastro />
+            <div className="container ">
+                <div className="texto_cadastro">
+                    <h1>Cadastre-se para criar um evento</h1>
+                </div>
+                <FormCadastro  nome="Cadastre-se"/>
+            </div>
+
         </div>
     )
 }

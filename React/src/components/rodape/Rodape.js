@@ -43,13 +43,13 @@ function Rodape() {
                         <h6 className="text-uppercase font-weight-bold">Links</h6>
                         <hr className="deep-purplee accent-2 mb-4 mt-0 d-inline-block mx-auto exemplo" ></hr>
                         <p>
-                            <a href="#!">Home</a>
+                            <Link href="#!">Home</Link>
                         </p>
                         <p>
-                            <a href="#!">Cadastra-se</a>
+                            <Link href="#!">Cadastra-se</Link>
                         </p>
                         <p>
-                            <a href="#!">Login</a>
+                            <Link href="#!">Login</Link>
                         </p>
                     </div>
                     <div className="col-4 col-lg-4 col-xl-3 mx-auto mb-4">

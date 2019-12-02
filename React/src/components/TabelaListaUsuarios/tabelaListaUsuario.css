@@ -1,0 +1,14 @@
+.table{
+    margin-top: 5em;
+    margin-left: 10.5vw ;
+    width:  80%;
+    border: 1px solid #303F9F;
+}
+.texto_listausuario{
+    display:flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+.fas{
+    margin-left: 2vh;
+}

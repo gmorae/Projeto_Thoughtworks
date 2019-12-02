@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import Navbar from '../../components/cabecalhos/cabecalhoPadrao/CabecalhoPadrao'
 import './Login.css'
-import img from '../../img/login.svg'
+// import img from '../../img/login.svg'
+import image from '../../img/login1.jpeg'
 import { EsqueceuSenha } from "../EsqueceuSenha/EsqueceuSenha";
 class Login extends Component {
     render() {
@@ -9,14 +11,13 @@ class Login extends Component {
             <div>
                 <Navbar />
                 <div class="row col-12">
-                    {/** Metade onde mostra a imagem, col-md-6  */}
-                    <div class="col-md-7 mt-9">
-                        <img src={img} class="img-fluidd" alt="smaple image" />
+                    <div class="col-md-6 imageLogin">
                     </div>
-                    <div class="col-md-5 mt-9">
+                    {/** Metade onde mostra a imagem, col-md-6  */}
+                    <div class="col-md-5 login_posicao">
                         <div class="container">
                             <h5 class="card-header info-color white-text text-center py-4">
-                                <strong>Sign in</strong>
+                                <strong>LOGIN</strong>
                             </h5>
                             <div class="card-body px-lg-5 pt-0">
                                 <form class="text-center">
@@ -31,7 +32,7 @@ class Login extends Component {
 
                                     <div class="d-flex justify-content-around mt-3 mb-3">
 
-                                        <a className="textEsqueceuSenha" data-toggle="modal" data-target="#modalEsqueceuSenha">Esqueceu a senha? </a>
+                                        <Link className="textEsqueceuSenha" data-toggle="modal" data-target="#modalEsqueceuSenha">Esqueceu a senha? </Link>
 
                                     </div>
                                     <button class="btn btn-blue-login btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Login</button>
