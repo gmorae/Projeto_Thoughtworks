@@ -8,6 +8,12 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //import NotFound from './pages/NotFound';
 import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
+import Test from './Pages/Test';
+// import ModalCategoria from './components/modalCategorias/ModalCategorias';
+
+
+
+
 const Rotas = (
     <Router>
         <div>
@@ -16,6 +22,9 @@ const Rotas = (
                 <Route path="/" exact component={App} />
                 <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
+                <Route path="/Test" component={Test} />
+                {/* <Route path="/modalcat" component={ModalCategoria} /> */}
+
 
                 {/** Rotas dos usuarios */}
 
