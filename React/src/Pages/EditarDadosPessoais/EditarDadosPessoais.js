@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import NavBar from '../../components/cabecalhos/cabecalhoAdmin/CabecalhoAdmin'
 import FormCadastro from '../../components/FormCadastro/FormCadastro'
+import EditarDados from '../../components/FormEditarDados/EditarDados'
+
 class EditarDadosPessoais extends Component {
     render() {
         return (
@@ -10,7 +12,7 @@ class EditarDadosPessoais extends Component {
                     <div className=" mt-5 text-center">
                         <h1>Editar dados pessoais</h1>
                     </div>
-                    <FormCadastro nome="Editar" />
+                    <EditarDados/>
                 </div>
 
             </div>
