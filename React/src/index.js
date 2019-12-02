@@ -20,6 +20,7 @@ const Rotas = (
                 <Route path="/" exact component={App} />
                 <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
+                <Route path="/DadosPessoais" component={DadosPessoais} />
 
 
                 {/** Rotas dos usuarios */}
