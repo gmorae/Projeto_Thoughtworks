@@ -4,3 +4,11 @@
     width:  80%;
     border: 1px solid #303F9F;
 }
+.texto_listausuario{
+    display:flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+.fas{
+    margin-left: 2vh;
+}

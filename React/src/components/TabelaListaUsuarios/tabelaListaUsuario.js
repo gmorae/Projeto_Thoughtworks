@@ -6,6 +6,9 @@ class TabelaListaUsuario extends Component {
     render() {
         return (
             <div>
+                <div className="texto_listausuario">
+                    <h1>Lista dos Usuarios</h1>
+                </div>
                 <table class="table">
                     <thead class="indigo darken-2 white-text">
                         <tr>
@@ -22,49 +25,49 @@ class TabelaListaUsuario extends Component {
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                         <tr>
                         <th scope="row">NOME TESTE</th>
                             <td>EMAIL TESTE</td>
                             <td>STATUS TESTE</td>
                             <td>TELEFONE TESTE</td>
-                            <td>OPÇÕES TESTE</td>
+                            <td><i class="fas fa-ellipsis-v"></i></td>
                         </tr>
                     </tbody>
                 </table>
