@@ -5,7 +5,7 @@ import './Rodape.css'
 function Rodape() {
 
     return (
-        <footer className="page-footer font-small unique-color-dark">
+        <footer className="footer-home-page">
             <div className="rod">
                 <div className="container">
                     <div className="row py-4 d-flex align-items-center">
