@@ -72,6 +72,13 @@ class Tabela extends Component {
                             <td>DATA TESTE</td>
                             <td>PADRINHO TESTE</td>
                         </tr>
+                        <tr>
+                            <th scope="row">TITULO TESTE</th>
+                            <td>CATEGORIA TESTE</td>
+                            <td>STATUS TESTE</td>
+                            <td>DATA TESTE</td>
+                            <td>PADRINHO TESTE</td>
+                        </tr>
                     </tbody>
                 </table>
 
