@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../../../components/cabecalhos/cabecalhoAdmin/CabecalhoAdmin'
-import TabelaListaUsuario from '../../../components/TabelaListaUsuarios/tabelaListaUsuario'
+import TabelaListarCategorias from '../../../components/TabelaListarCategorias/TabelaListarCategorias'
 
 function Home() {
   return (
     <div>
-
+      
       <Navbar />
-      <TabelaListaUsuario />
+      <TabelaListarCategorias />
 
     </div>
   )
