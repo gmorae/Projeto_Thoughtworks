@@ -13,6 +13,8 @@ import User from './Pages/User/Home/User'
 import Admin from './Pages/Admin/Home/Admin'
 import DadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais'
 import ListaUsuario from'./Pages/Admin/ListaUsuario/ListaUsuario'
+import ListarEventos from './Pages/Admin/ListarEventos/ListarEventos'
+
 
 const Rotas = (
     <Router>
@@ -36,6 +38,7 @@ const Rotas = (
                 <Route path="/Admin" component={Admin}/>
                 <Route path="/EditarDadosPessoais" component={DadosPessoais}/>
                 <Route path="/ListaUsuario" component={ListaUsuario}/>
+                <Route path="/ListarEventos" component={ListarEventos} />
 
 
                 {/*<Route component={NotFound} />*/}

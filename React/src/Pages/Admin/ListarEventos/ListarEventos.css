@@ -1,0 +1,14 @@
+.div_principal_listarEventos{
+    display: flex;
+    flex-direction: column;
+    margin-top: 6em;
+    width: 100%;
+    height: 4em;
+}
+
+.texto_h1_listarEventos{
+    color: #000;
+    margin-top: 1em;
+    margin-left: 38vw;
+    margin-bottom: -4vw;
+}
