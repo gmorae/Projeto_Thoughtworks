@@ -8,7 +8,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //import NotFound from './pages/NotFound';
 import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
-import CadastrarEvento from './Pages/CadastrarEvento/CadastrarEvento'
+import User from './Pages/User/Home/User'
+import Admin from './Pages/Admin/Home/Admin'
+import DadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais'
+import ListauUsuario from './Pages/Admin/ListaUsuario/ListaUsuario'
+import ListarEventos from './Pages/Admin/ListarEventos/ListarEventos'
 
 const Rotas = (
     <Router>
@@ -18,12 +22,20 @@ const Rotas = (
                 <Route path="/" exact component={App} />
                 <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
-                <Route path="/CadastrarEvento" component={CadastrarEvento}/>
+                <Route path="/DadosPessoais" component={DadosPessoais} />
+
 
                 {/** Rotas dos usuarios */}
+                <Route path="/User" component={User} />
+                
 
 
                 {/** Rotas do administrador */}
+                <Route path="/Admin" component={Admin}/>
+                <Route path="/EditarDadosPessoais" component={DadosPessoais}/>
+                <Route path="/ListaUsuario" component={ListauUsuario}/>
+                <Route path="/ListarEventos" component={ListarEventos}/>
+            
 
 
                 {/*<Route component={NotFound} />*/}
