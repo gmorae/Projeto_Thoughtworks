@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body{
+    margin:0;
+    
+}
+#editar{
+    display: flex;
+    justify-content: center;
+    font-size: 2em;
+    text-transform: capitalize;
+    font-family: "Open Sans";
+}
+
+.caixa{
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+    margin-top: 1em; 
+}
+
+.caixa i{
+    font-size: 1.75rem;
+    margin-right: 1rem;
+    /* opacity: 0.4; */   
+}
+
+.caixa input{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ced4da;
+    width: calc(19% - 0.5rem);
+    margin-left: 0.5rem;
+    font-family: "Open Sans";
+    font-weight: 300;
+    text-transform: capitalize;
+    font-size: 1em;
+    height: auto;
+    padding: 1.6rem 1 .4rem 0;   
+}
+
+#botao{
+    display: flex;
+    justify-content: center;
+    padding: 20px;  
+}
+
+#botao input{
+    display: flex;
+    justify-content: center;
+    padding: 13.44px 34.24px;
+    margin:6px;
+    border: none;
+    text-transform: uppercase;
+    background-color:rgb(21, 24, 83);
+    color:#fff;
+    border: 2px solid rgb(21, 24, 83);
+    font-family: "Open Sans"; 
+}
+
+.div_principal{
+    margin-top: 10vw;
+    width: 100%;
+}
