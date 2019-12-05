@@ -13,6 +13,7 @@ import Admin from './Pages/Admin/Home/Admin'
 import DadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais'
 import ListauUsuario from './Pages/Admin/ListaUsuario/ListaUsuario'
 import ListarEventos from './Pages/Admin/ListarEventos/ListarEventos'
+import EditarDadosAdmin from'./Pages/Admin/EditarDadosAdmin/EditarDadosAdmin'
 
 const Rotas = (
     <Router>
@@ -22,23 +23,24 @@ const Rotas = (
                 <Route path="/" exact component={App} />
                 <Route path="/Cadastro" component={Cadastro} />
                 <Route path="/Login" component={Login} />
-                <Route path="/DadosPessoais" component={DadosPessoais} />
 
 
                 {/** Rotas dos usuarios */}
                 <Route path="/User" component={User} />
+                <Route path="/DadosPessoais" component={DadosPessoais} />
                 
 
 
                 {/** Rotas do administrador */}
                 <Route path="/Admin" component={Admin}/>
-                <Route path="/EditarDadosPessoais" component={DadosPessoais}/>
                 <Route path="/ListaUsuario" component={ListauUsuario}/>
                 <Route path="/ListarEventos" component={ListarEventos}/>
+                <Route path="/EditarDadosAdmin" component={EditarDadosAdmin}/>
             
 
 
                 {/*<Route component={NotFound} />*/}
+                
             </Switch>
         </div>
     </Router>
