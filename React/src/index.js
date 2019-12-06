@@ -14,6 +14,10 @@ import DadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais'
 import ListauUsuario from './Pages/Admin/ListaUsuario/ListaUsuario'
 import ListarEventos from './Pages/Admin/ListarEventos/ListarEventos'
 import EditarDadosAdmin from'./Pages/Admin/EditarDadosAdmin/EditarDadosAdmin'
+import EditarSenhaAdmin from './Pages/Admin/EditarSenhaAdmin/EditarSenhaAdmin'
+import EditarSenhaUser from './Pages/User/EditarSenhaUser/EditarSenhaUser'
+import CadastrarEvento from './Pages/CadastrarEvento/CadastrarEvento'
+import ListaDeCategoria from './Pages/User/ListaDeCategoria/ListaDeCategoria';
 
 const Rotas = (
     <Router>
@@ -28,6 +32,9 @@ const Rotas = (
                 {/** Rotas dos usuarios */}
                 <Route path="/User" component={User} />
                 <Route path="/DadosPessoais" component={DadosPessoais} />
+                <Route path="/EditarSenhaUser" component={EditarSenhaUser}/>
+                <Route path="/CadastrarEvento" component={CadastrarEvento} />
+                <Route path="/ListaDeCategoria" component={ListaDeCategoria}/>
                 
 
 
@@ -36,6 +43,8 @@ const Rotas = (
                 <Route path="/ListaUsuario" component={ListauUsuario}/>
                 <Route path="/ListarEventos" component={ListarEventos}/>
                 <Route path="/EditarDadosAdmin" component={EditarDadosAdmin}/>
+                <Route path="/EditarSenhaAdmin" component={EditarSenhaAdmin}/>
+                
             
 
 
