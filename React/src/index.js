@@ -18,6 +18,7 @@ import EditarSenhaAdmin from './Pages/Admin/EditarSenhaAdmin/EditarSenhaAdmin'
 import EditarSenhaUser from './Pages/User/EditarSenhaUser/EditarSenhaUser'
 import CadastrarEvento from './Pages/CadastrarEvento/CadastrarEvento'
 import ListaDeCategoria from './Pages/User/ListaDeCategoria/ListaDeCategoria';
+import EditarDadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais';
 
 const Rotas = (
     <Router>
@@ -31,7 +32,7 @@ const Rotas = (
 
                 {/** Rotas dos usuarios */}
                 <Route path="/User" component={User} />
-                <Route path="/DadosPessoais" component={DadosPessoais} />
+                <Route path="/EditarDadosPessoais" component={EditarDadosPessoais} />
                 <Route path="/EditarSenhaUser" component={EditarSenhaUser}/>
                 <Route path="/CadastrarEvento" component={CadastrarEvento} />
                 <Route path="/ListaDeCategoria" component={ListaDeCategoria}/>
