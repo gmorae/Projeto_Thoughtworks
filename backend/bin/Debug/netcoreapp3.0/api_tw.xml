@@ -168,84 +168,51 @@
         </member>
         <member name="M:backend.Controllers.EventosController.Get">
             <summary>
-            O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
-            É um metodo que retorna os eventos do banco.
+            Lista todos os eventos
             </summary>
-            <returns>
-            Retorna os eventos ja criados do banco.
-            </returns>
-        </member>
-        <member name="M:backend.Controllers.EventosController.GetAprovados">
-            <summary>
-            É um metodo que retorna as os eventos aprovados do banco.
-            </summary>
-            <returns>
-            Retorna todos eventos aprovados
-            </returns>
-        </member>
-        <member name="M:backend.Controllers.EventosController.GetAguardando">
-            <summary>
-            É um metodo que retorna as os eventos que estão aguardando aprovação ou rejeição.
-            </summary>
-            <returns>
-            Retorna todos eventos que estão aguandando uma resposta.
-            </returns>
-        </member>
-        <member name="M:backend.Controllers.EventosController.GetReprovado">
-            <summary>
-            É um metodo que retorna as os eventos reprovados do banco.
-            </summary>
-            <returns>
-            Retorna todos eventos reprovados.
-            </returns>
+            <returns>Retorna uma lista de eventos</returns>
         </member>
         <member name="M:backend.Controllers.EventosController.Get(System.Int32)">
             <summary>
-             É um metodo que retorna o evento pelo id especifico.
+            Busca um evento através do seu ID
             </summary>
-            <param name="id"></param>
-            <returns>
-            retorna o evento pelo id especificado.
-            </returns>
-        </member>
-        <member name="M:backend.Controllers.EventosController.GetEventos(System.String)">
-            <summary>
-            É um metodo que busca alguma informação nos evento.
-            </summary>
-            <param name="evento"></param>
-            <returns>
-            retorna a informação especificada do evento.
-            </returns>
+            <param name="id">Identificador único do evento buscado</param>
+            <returns>Retorna um evento buscado</returns>
         </member>
         <member name="M:backend.Controllers.EventosController.Post(api_tw.Models.Eventos)">
             <summary>
-            O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
-            É um metodo que cria um evento.
+            Cadastra um novo evento
             </summary>
-            <param name="eventos"></param>
-            <returns>
-            Retorna o evento criado.
-            </returns>
+            <param name="evento">Objeto evento que será cadastrado</param>
+            <returns>Retorna os dados do evento cadastrado</returns>
         </member>
         <member name="M:backend.Controllers.EventosController.Put(System.Int32,api_tw.Models.Eventos)">
             <summary>
-            O método PUT substitui as as alterações antigas pelas novas cargass de dados.
-            É um metodo que atualiza o banco dos eventos.
+            Atualiza um evento existente
             </summary>
-            <param name="id"></param>
-            <param name="eventos"></param>
-            <returns>
-            Retorna o banco atualizado pelo id.
-            </returns>
+            <param name="id">Identificador único do evento que será atualizado</param>
+            <param name="evento">Dados do evento que serão atualizados</param>
+            <returns>Retorna status code 204 - No Content</returns>
         </member>
         <member name="M:backend.Controllers.EventosController.Delete(System.Int32)">
             <summary>
-            O método DELETE remove um recurso específico do banco por id.
+            Deleta um evento existente
             </summary>
-            <param name="id"></param>
-            <returns>
-            Retorna o banco sem o id especifico do evento deletado.
-            </returns>
+            <param name="id">Identificador único do evento que será deletado</param>
+            <returns>Retorna os dados do evento que foi deletado</returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetFiltrar(System.String)">
+            <summary>
+            Filtra os eventos através do nome
+            </summary>
+            <param name="filtro">Filtro que será aplicado na busca</param>
+            <returns>Retorna uma lista de eventos filtrados</returns>
+        </member>
+        <member name="M:backend.Controllers.EventosController.GetOrdenar">
+            <summary>
+            Ordena uma lista de eventos
+            </summary>
+            <returns>Retorna uma lista de eventos ordenada</returns>
         </member>
         <member name="M:EventShareBackend.Controllers.LoginController.Login(api_tw.Models.UsuarioModel)">
             <summary>

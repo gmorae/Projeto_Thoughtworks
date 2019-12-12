@@ -23,7 +23,7 @@ namespace api_tw.Controllers
         /// Retorna as categoria do banco.
         /// </returns>
         [EnableCors]
-        [Authorize(Roles = "Administrador")]
+        // [Authorize(Roles = "Administrador")]
         [HttpGet]
         public async Task<ActionResult<List<CategoriaModel>>> Get()
         {
@@ -93,7 +93,7 @@ namespace api_tw.Controllers
         /// Retorna a categoria criada.
         /// </returns>
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
+        // [Authorize(Roles = "Administrador")]
         public async Task<ActionResult<CategoriaModel>> Post(CategoriaModel categoria)
         {
             try
@@ -118,7 +118,7 @@ namespace api_tw.Controllers
         /// Retorna o banco atualizado pelo id.
         /// </returns>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrador")]
+        // [Authorize(Roles = "Administrador")]
         public async Task<ActionResult<CategoriaModel>> Put(int id, CategoriaModel categoria)
         {
             if (id != categoria.IdCategoria)
@@ -152,7 +152,7 @@ namespace api_tw.Controllers
         /// Retorna o banco sem a categoria removida especificada pelo id.
         /// </returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrador")]
+        // [Authorize(Roles = "Administrador")]
         public async Task<ActionResult<CategoriaModel>> Delete(int id)
         {
             var buscaId = await repositorio.Get(id);
