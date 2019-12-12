@@ -28,8 +28,7 @@ namespace api_tw.Models
         public string imagemEvento { get; set; }
 
         [Column("coffe")]
-        [StringLength(5)]
-        public string coffe { get; set; }
+        public int coffe { get; set; }
 
         [Column("localizacao")]
         [StringLength(100)]

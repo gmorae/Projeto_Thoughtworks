@@ -7,87 +7,65 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Repositories
 {
-    public class EventosRepository : IEventosRepository
+    public class EventoRepository : IEventoRepository
     {
-        public async Task<Eventos> Delete(Eventos evento)
+        EasyTalkContext _contexto = new EasyTalkContext();
+        public async Task<Eventos> Alterar(Eventos evento)
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                context.Eventos.Remove(evento);
-                await context.SaveChangesAsync();
-                return evento;
-            }
+            _contexto.Entry(evento).State = EntityState.Modified;
+            await _contexto.SaveChangesAsync();
+            return evento;
         }
 
-        public async Task<List<Eventos>> Get()
+        public Eventos BuscarPorID(int id)
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                return await context.Eventos.Include(c => c.IdCategoriaNavigation).Include(u => u.IdResponsavelNavigation).ToListAsync();
-            }
+            Eventos eventoBuscado = _contexto.Eventos
+                .Include("Categoria").ToList().Find(e => e.IdEvento == id) ;
+            return eventoBuscado;
         }
 
-        public async Task<Eventos> Get(int id)
+        public async Task<Eventos> Excluir(Eventos evento)
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                return await context.Eventos.Include(c => c.IdCategoriaNavigation).Include(u => u.IdResponsavelNavigation).FirstOrDefaultAsync(x => x.IdEvento == id);
-            }
+            _contexto.Eventos.Remove(evento);
+            await _contexto.SaveChangesAsync();
+            return evento;
         }
 
-        public async Task<List<Eventos>> GetAprovado()
+        public List<Eventos> FiltrarPorNome(string filtro)
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                List<Eventos> statusList = await context.Eventos.Where(s => s.Ativo == 1).ToListAsync();
-                return statusList;
-            }
-        }
-        public async Task<List<Eventos>> GetAguardando()
-        {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                List<Eventos> statusList = await context.Eventos.Where(s => s.Ativo == 2).ToListAsync();
-                return statusList;
-            }
-        }
-        public async Task<List<Eventos>> GetReprovado()
-        {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                List<Eventos> statusList = await context.Eventos.Where(s => s.Ativo == 3).ToListAsync();
-                return statusList;
-            }
+            List<Eventos> eventos = _contexto.Eventos
+                .Include("Categoria").Where(e => e.NomeEvento.Contains(filtro)).ToList();
+
+            return eventos;
         }
 
-        public async Task<Eventos> Post(Eventos eventos)
+        public async Task<List<Eventos>> Listar()
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                await context.Eventos.AddAsync(eventos);
-                await context.SaveChangesAsync();
-                return eventos;
-            }
+            return await _contexto.Eventos
+                .Include(c => c.IdCategoriaNavigation)
+                .Include(u => u.IdResponsavelNavigation)
+                .ToListAsync();
         }
 
-        public async Task<Eventos> Put(Eventos evento)
+        public List<Eventos> Ordenar()
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                context.Entry(evento).State = EntityState.Modified;
-                await context.SaveChangesAsync();
-                return evento;
-            }
+            List <Eventos> evento = _contexto.Eventos
+                .Include("Categoria").OrderByDescending(u => u.NomeEvento).ToList();
+
+            return evento;
         }
 
-        public async Task<List<Eventos>> GetEventos(string evento)
+        public async Task<Eventos> Salvar(Eventos evento)
         {
-            using (EasyTalkContext context = new EasyTalkContext())
-            {
-                List<Eventos> listevent = await context.Eventos.Where(c => c.NomeEvento.Contains(evento) || c.Descricao.Contains(evento)).ToListAsync();
+            await _contexto.AddAsync(evento);
 
-                return listevent;
-            }
+            await _contexto.SaveChangesAsync();
+
+            return evento;
         }
+    }
+
+    public interface IEventoRepository
+    {
     }
 }

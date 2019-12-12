@@ -85,13 +85,13 @@ namespace api_tw.Controllers
             try
             {
                
-                var arquivo = Request.Form.Files[0];
-                usuario.imagemUsuario = up.Upload(arquivo, "images");
                 usuario.NomeUsuario = Request.Form["nomeUsuario"];
                 usuario.Email = Request.Form["email"];
                 usuario.Senha = Request.Form["senha"];
                 usuario.TelefoneMovel = Request.Form["telefoneMovel"];
                 usuario.IdTipo = int.Parse(Request.Form["idTipo"]);
+                var arquivo = Request.Form.Files[0];
+                usuario.imagemUsuario = up.Upload(arquivo, "images");
                 await repositorio.Post(usuario);
             }
             catch (System.Exception)

@@ -14,9 +14,10 @@ namespace api_tw.Models
             EventosIdUsuarioNavigation = new HashSet<Eventos>();
         }
 
-        [Key]
         [Column("id_usuario")]
+        [Key]
         public int IdUsuario { get; set; }
+
         [Column("nome_usuario")]
         [StringLength(50)]
         public string NomeUsuario { get; set; }
@@ -27,18 +28,21 @@ namespace api_tw.Models
         [StringLength(100)]
         public string Senha { get; set; }
 
-        [Column("imagemUsuario")]
-        [StringLength(100)]
-        public string imagemUsuario { get; set; }
-
         [Column("telefone_movel")]
         [StringLength(20)]
         public string TelefoneMovel { get; set; }
-        [Column("id_tipo")]
-        public int? IdTipo { get; set; }
 
+        [Column("imagemUsuario")]
+        [StringLength(100)]
+        public string imagemUsuario { get; set; }
+        [Column("id_tipo")]
         [ForeignKey(nameof(IdTipo))]
         [InverseProperty(nameof(TipoUsuarioModel.Usuario))]
+        public int? IdTipo { get; set; }
+    
+
+
+
         public virtual TipoUsuarioModel IdTipoNavigation { get; set; }
         [InverseProperty(nameof(Eventos.IdResponsavelNavigation))]
         public virtual ICollection<Eventos> EventosIdResponsavelNavigation { get; set; }

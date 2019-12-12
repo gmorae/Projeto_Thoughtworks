@@ -5,6 +5,7 @@ using api_tw.Models;
 using api_tw.Repositories;
 using backend.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,281 +14,149 @@ namespace backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Produces("application/json")]
     public class EventosController : ControllerBase
     {
-        EventosRepository eventosRepository = new EventosRepository();
-
-        UpRepository up = new UpRepository();
+        EventoRepository _repositorio = new EventoRepository();
 
         /// <summary>
-        /// O método GET solicita a representação de um recurso específico. Requisições utilizando o método GET devem retornar apenas dados.
-        /// É um metodo que retorna os eventos do banco.
+        /// Lista todos os eventos
         /// </summary>
-        /// <returns>
-        /// Retorna os eventos ja criados do banco.
-        /// </returns>
+        /// <returns>Retorna uma lista de eventos</returns>
+        [EnableCors]
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
-
         public async Task<ActionResult<List<Eventos>>> Get()
         {
-            try
+            List<Eventos> eventos = await _repositorio.Listar();
+
+            if (eventos == null)
             {
-                List<Eventos> listaDeEventos = await eventosRepository.Get();
-                if (listaDeEventos == null)
-                {
-                    return NotFound();
-                }
-                foreach (Eventos item in listaDeEventos)
-                {
-                    item.IdCategoriaNavigation.Eventos = null;
-                    item.IdResponsavelNavigation.EventosIdResponsavelNavigation = null;
-                }
-                return listaDeEventos;
+                return NotFound();
             }
-            catch (System.Exception)
-            {
-                throw;
-            }
+
+            return eventos;
         }
 
         /// <summary>
-        /// É um metodo que retorna as os eventos aprovados do banco.
+        /// Busca um evento através do seu ID
         /// </summary>
-        /// <returns>
-        /// Retorna todos eventos aprovados
-        /// </returns>
-        [HttpGet("aprovado")]
-        [Authorize(Roles = "Administrador")]
-
-        public async Task<ActionResult<List<Eventos>>> GetAprovados()
-        {
-            try
-            {
-                List<Eventos> listApro = await eventosRepository.GetAprovado();
-                if (listApro == null)
-                {
-                    return NotFound();
-                }
-                return listApro;
-
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// É um metodo que retorna as os eventos que estão aguardando aprovação ou rejeição.
-        /// </summary>
-        /// <returns>
-        /// Retorna todos eventos que estão aguandando uma resposta.
-        /// </returns>
-        [HttpGet("aguardando")]
-        [Authorize(Roles = "Administrador")]
-
-        public async Task<ActionResult<List<Eventos>>> GetAguardando()
-        {
-            try
-            {
-                List<Eventos> listAguard = await eventosRepository.GetAguardando();
-                if (listAguard == null)
-                {
-                    return NotFound();
-                }
-                return listAguard;
-
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// É um metodo que retorna as os eventos reprovados do banco.
-        /// </summary>
-        /// <returns>
-        /// Retorna todos eventos reprovados.
-        /// </returns>
-        [HttpGet("reprovado")]
-        [Authorize(Roles = "Administrador")]
-
-        public async Task<ActionResult<List<Eventos>>> GetReprovado()
-        {
-            try
-            {
-                List<Eventos> listRepro = await eventosRepository.GetReprovado();
-                if (listRepro == null)
-                {
-                    return NotFound();
-                }
-                return listRepro;
-
-            }
-            catch (System.Exception)
-            {
-
-                throw;
-            }
-        }
-
-        /// <summary>
-        ///  É um metodo que retorna o evento pelo id especifico.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>
-        /// retorna o evento pelo id especificado.
-        /// </returns>
+        /// <param name="id">Identificador único do evento buscado</param>
+        /// <returns>Retorna um evento buscado</returns>
         [HttpGet("{id}")]
-
-        public async Task<ActionResult<Eventos>> Get(int id)
+        public ActionResult<Eventos> Get(int id)
         {
-            try
+            Eventos evento = _repositorio.BuscarPorID(id);
+
+            if (evento == null)
             {
-                Eventos listaDeEventos = await eventosRepository.Get(id);
-
-                if (listaDeEventos == null)
-                {
-                    return NotFound();
-                }
-
-                return listaDeEventos;
-
+                return NotFound(new { mensagem = "Nenhum usuário encontrado para o ID informado" });
             }
-            catch (System.Exception)
-            {
-                throw;
-            }
+
+            return evento;
         }
 
         /// <summary>
-        /// É um metodo que busca alguma informação nos evento.
+        /// Cadastra um novo evento
         /// </summary>
-        /// <param name="evento"></param>
-        /// <returns>
-        /// retorna a informação especificada do evento.
-        /// </returns>
-        [HttpGet("busca/{evento}")]
-        public async Task<ActionResult<List<Eventos>>> GetEventos(string evento)
-        {
-            try
-            {
-                List<Eventos> listEvent = await eventosRepository.GetEventos(evento);
-
-                return listEvent;
-            }
-            catch (System.Exception)
-            {
-                throw;
-            }
-        }
-
-        /// <summary>
-        /// O método POST é utilizado para submeter uma entidade a um recurso específico, frequentemente causando uma mudança no estado do recurso ou efeitos colaterais no servidor.
-        /// É um metodo que cria um evento.
-        /// </summary>
-        /// <param name="eventos"></param>
-        /// <returns>
-        /// Retorna o evento criado.
-        /// </returns>
+        /// <param name="evento">Objeto evento que será cadastrado</param>
+        /// <returns>Retorna os dados do evento cadastrado</returns>
         [HttpPost]
-        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
-
-        public async Task<ActionResult<Eventos>> Post([FromForm] Eventos eventos)
+        public async Task<ActionResult<Eventos>> Post(Eventos evento)
         {
-          
             try
             {
-                var arquivo = Request.Form.Files[0];
-                eventos.imagemEvento = up.Upload(arquivo, "images/eventos");
-                eventos.NomeEvento = Request.Form["NomeEvento"];
-                eventos.Descricao = Request.Form["Descricao"];
-                eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
-                eventos.DataEvento = DateTime.Parse(Request.Form["DataEvento"]);
-                eventos.Ativo = int.Parse(Request.Form["Ativo"]);
-                eventos.Localizacao = Request.Form["Localizacao"];
-                eventos.coffe = Request.Form["coffe"];
-                eventos.IdCategoria = int.Parse(Request.Form["IdCategoria"]);
-                eventos.IdUsuario = int.Parse(Request.Form["IdUsuario"]);
-                eventos.IdEvento = int.Parse(Request.Form["IdEvento"]);
-                return await eventosRepository.Post(eventos);
+                await _repositorio.Salvar(evento);
             }
             catch (System.Exception)
             {
                 throw;
             }
+
+            return evento;
         }
 
         /// <summary>
-        /// O método PUT substitui as as alterações antigas pelas novas cargass de dados.
-        /// É um metodo que atualiza o banco dos eventos.
+        /// Atualiza um evento existente
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="eventos"></param>
-        /// <returns>
-        /// Retorna o banco atualizado pelo id.
-        /// </returns>
+        /// <param name="id">Identificador único do evento que será atualizado</param>
+        /// <param name="evento">Dados do evento que serão atualizados</param>
+        /// <returns>Retorna status code 204 - No Content</returns>
         [HttpPut("{id}")]
-        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
-
-        public async Task<ActionResult<Eventos>> Put(int id, Eventos eventos)
+        public async Task<ActionResult> Put(int id, Eventos evento)
         {
-            if (id != eventos.IdEvento)
+            // Se o ID do objeto não existir, retorna erro 400 - BadRequest
+            if (id != evento.IdEvento)
             {
                 return BadRequest();
             }
+
             try
             {
-                return await eventosRepository.Put(eventos);
+                await _repositorio.Alterar(evento);
             }
-            catch (DbUpdateException)
+            catch (System.Exception)
             {
-                var eventosValida = eventosRepository.Get(id);
-                if (eventosValida == null)
+                // Verifica se o objeto inserido existe no banco
+                Eventos evento_valido = _repositorio.BuscarPorID(id);
+
+                if (evento_valido == null)
                 {
                     return NotFound();
                 }
                 else
                 {
-
                     throw;
-
                 }
             }
+
+            // NoContent retorna 204 - Sem conteúdo
+            return NoContent();
         }
 
         /// <summary>
-        /// O método DELETE remove um recurso específico do banco por id.
+        /// Deleta um evento existente
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>
-        /// Retorna o banco sem o id especifico do evento deletado.
-        /// </returns>
+        /// <param name="id">Identificador único do evento que será deletado</param>
+        /// <returns>Retorna os dados do evento que foi deletado</returns>
         [HttpDelete("{id}")]
-        [Authorize(Roles = "Administrador, Comunidade, Funcionário")]
-
         public async Task<ActionResult<Eventos>> Delete(int id)
         {
-            try
-            {
-                Eventos eventosRetornado = await eventosRepository.Get(id);
-                if (eventosRepository == null)
-                {
-                    return NotFound();
-                }
-                await eventosRepository.Delete(eventosRetornado);
+            Eventos evento_buscado = _repositorio.BuscarPorID(id);
 
-                return eventosRetornado;
-            }
-            catch (System.Exception)
+            if (evento_buscado == null)
             {
-                throw;
+                return NotFound(new { mensagem = "Nenhum usuário encontrado para o ID informado" });
             }
+
+            await _repositorio.Excluir(evento_buscado);
+
+            return evento_buscado;
+        }
+
+        /// <summary>
+        /// Filtra os eventos através do nome
+        /// </summary>
+        /// <param name="filtro">Filtro que será aplicado na busca</param>
+        /// <returns>Retorna uma lista de eventos filtrados</returns>
+        [HttpGet("FiltrarPorNome")]
+        public ActionResult<List<Eventos>> GetFiltrar([FromBody]string filtro)
+        {
+
+            List<Eventos> eventos_filtrados = _repositorio.FiltrarPorNome(filtro);
+
+            return eventos_filtrados;
+        }
+
+        /// <summary>
+        /// Ordena uma lista de eventos
+        /// </summary>
+        /// <returns>Retorna uma lista de eventos ordenada</returns>
+        [HttpGet("Ordenar")]
+        public ActionResult<List<Eventos>> GetOrdenar()
+        {
+
+            List<Eventos> eventos_ordenados = _repositorio.Ordenar();
+
+            return eventos_ordenados;
         }
     }
 }
