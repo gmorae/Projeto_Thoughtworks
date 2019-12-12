@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
 //import NotFound from './pages/NotFound';
 import Login from './Pages/Login/Login'
@@ -19,6 +19,19 @@ import EditarSenhaUser from './Pages/User/EditarSenhaUser/EditarSenhaUser'
 import CadastrarEvento from './Pages/CadastrarEvento/CadastrarEvento'
 import ListaDeCategoria from './Pages/User/ListaDeCategoria/ListaDeCategoria';
 import EditarDadosPessoais from './Pages/EditarDadosPessoais/EditarDadosPessoais';
+import { usuarioAutenticado, parseJwt } from './services/auth';
+
+const PermissaoAdm = ({ component: Component}) => (
+    <Route 
+        render={props =>
+            usuarioAutenticado() && parseJwt().Role === 'Administrador' ? (
+                <component {...props} />
+            ) : (
+                <Redirect to={{ path: '/Admin'}} />
+            )
+        }
+        />
+)
 
 const Rotas = (
     <Router>
@@ -40,7 +53,7 @@ const Rotas = (
 
 
                 {/** Rotas do administrador */}
-                <Route path="/Admin" component={Admin}/>
+                <PermissaoAdm path="/Admin" component={Admin}/>
                 <Route path="/ListaUsuario" component={ListauUsuario}/>
                 <Route path="/ListarEventos" component={ListarEventos}/>
                 <Route path="/EditarDadosAdmin" component={EditarDadosAdmin}/>
