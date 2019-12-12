@@ -2,35 +2,51 @@ import React, { Component } from 'react'
 import Navbar from '../../../components/cabecalhos/cabecalhoAdmin/CabecalhoAdmin'
 import TabelaListarCategorias from '../../../components/TabelaListarCategorias/TabelaListarCategorias'
 import ModalListaDeCategoria from '../../../components/ModalListaDeCategoria/ModalListaDeCategoria'
+import Api from '../../../services/api'
 
 
-function ListaDeCategoria() {
-    let Tabela = {
-        marginTop: '5.5em',
+//para fazer a leitura das categorias criei uma classe 
+class ListaDeCategoria extends Component {
+
+    // indica que iremos startar algo dentro da classe para manipular
+    constructor() {
+        super();
+        this.state = { ListaDeCategoria: [] };
     }
 
-    let botaoCriarEvento ={
-        left: '94.9em',
-        top: '5em',
-        width: '10vw',
-        height: '5vh',
-        color: 'white',
-        padding: '0'
+    getCategorias = async () => {
+        var response = await Api.get("/categorias");
+        this.setState({ ListaDeCategoria: response.data.ListaDeCategoria });
     }
+    render() {
+        let Tabela = {
+            marginTop: '5.5em',
+        }
 
-    return (
-        <div>
-            <Navbar />
-            <h1 className="text-center mt-5">Lista de Categorias</h1>
-            <a href="" data-toggle="modal" data-target="#ModalListaDeCategoria">
-            <button className="btn btn-blue" style={botaoCriarEvento}>+ Criar categoria</button>
-            </a>
-            <ModalListaDeCategoria/>
-            <div style={Tabela}>
-                <TabelaListarCategorias />
+        let botaoCriarEvento = {
+            left: '94.9em',
+            top: '5em',
+            width: '10vw',
+            height: '5vh',
+            color: 'white',
+            padding: '0'
+        }
+        return (
+            <div>
+                <Navbar />
+                <h1 className="text-center mt-5">Lista de Categorias</h1>
+                <a href="" data-toggle="modal" data-target="#ModalListaDeCategoria">
+                    <button className="btn btn-blue" style={botaoCriarEvento}>+ Criar categoria</button>
+                </a>
+                <ModalListaDeCategoria />
+                <div style={Tabela}>
+                    <TabelaListarCategorias />
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default ListaDeCategoria
+
+
+export default ListaDeCategoria;

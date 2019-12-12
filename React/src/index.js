@@ -5,7 +5,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 
-//import NotFound from './pages/NotFound';
+//import NotFound from './pages/NotFound'; 
+
+
 import Login from './Pages/Login/Login'
 import Cadastro from './Pages/Cadastro/Cadastro'
 import User from './Pages/User/Home/User'
@@ -48,7 +50,6 @@ const Rotas = (
                 <Route path="/EditarDadosPessoais" component={EditarDadosPessoais} />
                 <Route path="/EditarSenhaUser" component={EditarSenhaUser}/>
                 <Route path="/CadastrarEvento" component={CadastrarEvento} />
-                <Route path="/ListaDeCategoria" component={ListaDeCategoria}/>
                 
 
 
@@ -58,6 +59,7 @@ const Rotas = (
                 <Route path="/ListarEventos" component={ListarEventos}/>
                 <Route path="/EditarDadosAdmin" component={EditarDadosAdmin}/>
                 <Route path="/EditarSenhaAdmin" component={EditarSenhaAdmin}/>
+                <Route path="/ListaDeCategoria" component={ListaDeCategoria}/>
                 
             
 
