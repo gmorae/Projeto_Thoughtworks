@@ -2,12 +2,14 @@ create database easyTalk;
 use easyTalk;
 create table categoria(
 	id_categoria int identity primary key not null,
-	nome_categoria varchar(50)
+	nome_categoria varchar(50),
+	descricao_categoria varchar(250)
 )
 
 create table tipo_usuario(
 	id_tipo int identity primary key not null,
 	nome_tipo_usuario varchar(50)
+
 )
 
 create table usuario(
@@ -29,7 +31,8 @@ create table eventos(
 	localizacao varchar(100),
 	id_categoria int foreign key references categoria(id_categoria),
 	id_usuario int foreign key references usuario(id_usuario),
-	id_responsavel int foreign key references usuario(id_usuario)
+	id_responsavel int foreign key references usuario(id_usuario),
+	coffe int
 )
 
 
